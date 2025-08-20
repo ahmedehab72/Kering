@@ -47,8 +47,11 @@ export const GridSection = () => {
           />
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
           <div className="absolute top-1/2 left-8 transform -translate-y-1/2  text-white ">
-            <h2 className="text-3xl font-light leading-tight">
+            <h2 className="hidden lg:block text-3xl font-light leading-tight">
               Kering Highlights - Art & Jewelry: A retrospective to spotlight Pomellatos legacy
+            </h2>
+            <h2 className="block lg:hidden text-lg font-light leading-tight">
+              Kering Highlights - Art & Jewelry
             </h2>
           </div>
         </div>
@@ -115,7 +118,7 @@ export const GridSection = () => {
           <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-300" />
           <div className="absolute top-1/2 left-8 transform  -translate-y-1/2  text-white ">
             <p className="text-lg font-semibold tracking-[.5rem] mb-2">GROUP</p>
-            <h2 className="text-3xl font-semibold">Kering Foundation</h2>
+            <h2 className="text-xl lg:text-3xl font-semibold">Kering Foundation</h2>
           </div>
         </div>
       </div>
@@ -148,7 +151,7 @@ export const GridSection = () => {
           />
           <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-300" />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  text-white ">
-            <p className="text-2xl font-semibold tracking-[.6rem] mb-2">SUSTAINABLITY</p>
+            <p className="text-sm lg:text-2xl font-semibold  tracking-[.4rem] mb-2">SUSTAINABLITY</p>
           </div>
         </div>
       </div>
@@ -164,8 +167,12 @@ export const GridSection = () => {
           />
           <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-300" />
           <div className="absolute top-1/2 left-1/4 transform -translate-x-1/4 -translate-y-1/2  text-white ">
-            <h2 className="text-3xl font-light">Lorem ipsum dolor sit amet consectetur .</h2>
-
+            <h2 className="hidden lg:block text-3xl font-light leading-tight">
+              Lorem ipsum, dolor sit amet consectetur adipisicing.
+            </h2>
+            <h2 className="block lg:hidden text-lg font-light leading-tight">
+              Lorem ipsum, dolor sit .
+            </h2>
           </div>
         </div>
       </div>
