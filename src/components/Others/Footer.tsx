@@ -53,48 +53,51 @@ export default function Footer() {
           </a>
         </div>
 
+
         {/* Navigation Links */}
         <nav className="mb-8">
           <ul className="flex flex-wrap justify-center items-center gap-1 text-xs text-gray-700 font-medium tracking-wide">
             <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
-                {t("SITEMAP")}
-                </a>
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                {t("footer.sitemap")}
+              </a>
             </li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
-                CONTACT US
+                {t("footer.contact")}
               </a>
             </li>
             <li className="mx-2">•</li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
-                LEGAL
+                {t("footer.legal")}
               </a>
             </li>
             <li className="mx-2">•</li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
-                CREDITS
+                {t("footer.credits")}
               </a>
             </li>
             <li className="mx-2">•</li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
-                PRIVACY POLICY
+                {t("footer.privacy")}
               </a>
             </li>
             <li className="mx-2">•</li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
-                COOKIES SETTINGS AND DO NOT SELL OR SHARE
+                {t("footer.cookies")}
               </a>
             </li>
           </ul>
         </nav>
 
         {/* Copyright */}
-        <div className="text-xs text-gray-600 font-medium tracking-wide">© KERING 2025. ALL RIGHTS RESERVED</div>
+        <div className="text-xs text-gray-600 font-medium tracking-wide">
+          © KERING 2025. {t("footer.rights")}
+        </div>
       </div>
     </footer>
   )

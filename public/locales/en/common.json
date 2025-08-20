@@ -1,7 +1,33 @@
 {
   "hello": "Hello, {{name}}!",
   "sharePrice": "Share price",
-  "nav": { "home": "Home", "about": "About" },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
   "switch_to_ar": "العربية",
-  "SITEMAP": "Sitemap"
+  "share_price": "Share price",
+  "join_us": "JOIN US",
+  "search": "Search",
+  "filter_by_date": "Filter by date",
+  "recent_to_old": "From most recent to oldest",
+  "old_to_recent": "From oldest to most recent",
+  "filter_by_section": "Filter by section",
+  "sections": {
+    "sustainability": "Sustainability",
+    "finance": "Finance",
+    "press": "Press",
+    "talent": "Talent",
+    "group": "Group",
+    "houses": "Houses"
+  },
+    "footer": {
+    "sitemap": "Sitemap",
+    "contact": "Contact Us",
+    "legal": "Legal",
+    "credits": "Credits",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies Settings and Do Not Sell or Share",
+    "rights": "All rights reserved"
+  }
 }

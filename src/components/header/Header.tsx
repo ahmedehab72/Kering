@@ -1,13 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Search, Menu, X } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import {  Search, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { it } from "node:test"
 import LanguageSwitcher from "../Others/LanguageSwitcher"
-import { useTranslation } from 'react-i18next';
 
 
 const languages = [
@@ -34,7 +31,6 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [searchOpen, setSearchOpen] = useState(false)
     const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
-    const {t} = useTranslation()
     return (
         <>
             <header className="w-full bg-white relative z-50">
