@@ -58,7 +58,7 @@ export default function Header() {
                                         <Link
                                             key={item.title}
                                             href={item.href}
-                                            className="text-xs hover:text-sm hover:hover:bg-[#f1e4db] h-20 flex items-center p-5  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                                            className="text-xs hover:text-sm hover:bg-[#f1e4db] h-16 flex items-center p-5  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
                                             onMouseEnter={() => setHoveredMenu(item.title)}
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
@@ -80,7 +80,7 @@ export default function Header() {
                                         <Link
                                             key={item.title}
                                             href={item.href}
-                                            className="text-xs hover:text-sm hover:hover:bg-[#f1e4db] h-20 flex items-center p-3  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                                            className="text-xs hover:text-sm hover:bg-[#f1e4dbc4] h-16 flex items-center p-3  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
                                             onMouseEnter={() => setHoveredMenu(item.title)}
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
@@ -151,7 +151,7 @@ export default function Header() {
 
                 {hoveredMenu && (
                     <div
-                        className="absolute top-full left-0 w-screen bg-[#f1e4db] z-40 py-8"
+                        className="absolute top-full left-0 w-screen bg-[#f1e4dbc4] z-40 py-8"
                         onMouseEnter={() => setHoveredMenu(hoveredMenu)}
                         onMouseLeave={() => setHoveredMenu(null)}
                     >

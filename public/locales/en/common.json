@@ -2,5 +2,6 @@
   "hello": "Hello, {{name}}!",
   "sharePrice": "Share price",
   "nav": { "home": "Home", "about": "About" },
-  "switch_to_ar": "العربية"
+  "switch_to_ar": "العربية",
+  "SITEMAP": "Sitemap"
 }

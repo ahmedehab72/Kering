@@ -1,6 +1,9 @@
+'use client'
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export default function Footer() {
+  const {t} = useTranslation()
   return (
     <footer className="bg-[#f1e4db] py-6 px-6 my-12">
       <div className="max-w-4xl mx-auto text-center">
@@ -54,11 +57,10 @@ export default function Footer() {
         <nav className="mb-8">
           <ul className="flex flex-wrap justify-center items-center gap-1 text-xs text-gray-700 font-medium tracking-wide">
             <li>
-              <a href="#" className="hover:text-gray-900 transition-colors">
-                SITEMAP
-              </a>
+                <a href="#" className="hover:text-gray-900 transition-colors">
+                {t("SITEMAP")}
+                </a>
             </li>
-            <li className="mx-2">•</li>
             <li>
               <a href="#" className="hover:text-gray-900 transition-colors">
                 CONTACT US

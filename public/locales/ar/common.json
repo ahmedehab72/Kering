@@ -3,5 +3,6 @@
     "sharePrice": "سعر السهم",
 
   "nav": { "home": "الصفحة الرئيسية", "about": "من نحن" },
-  "switch_to_ar": "العربية"
+  "switch_to_ar": "العربية",
+  "SITEMAP": "خريطة الموقع"
 }
