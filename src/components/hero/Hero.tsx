@@ -208,7 +208,7 @@ export default function HeroSlider() {
 
 
             {/* Brand Thumbnails */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 bg-[#f1e4db]">
+            <div className="absolute bottom-0 left-0 right-0  p-4 bg-[#f1e4db]">
 
                 <div className="mx-auto flex space-x-10 items-center justify-center overflow-x-auto">
                     {/* Progress Bar */}
@@ -219,7 +219,7 @@ export default function HeroSlider() {
                         <button
                             key={slide.id}
                             onClick={() => goToSlide(index)}
-                            className={`flex-shrink-0 rounded-full p-1 transition-all duration-300 ${index === currentSlide ? "bg-white shadow-lg" : "bg-white/20 hover:bg-white/40"
+                            className={`flex-shrink-0 rounded-full p-1 cursor-pointer transition-all duration-300 ${index === currentSlide ? "bg-white shadow-lg" : "bg-white/20 hover:bg-white/40"
                                 }`}
                         >
                             <img
