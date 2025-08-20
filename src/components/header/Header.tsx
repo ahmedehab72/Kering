@@ -55,7 +55,7 @@ export default function Header() {
                                 {/* Left navigation items */}
                                 <div className="flex items-center space-x-8">
                                     {leftNavItems.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.title}
                                             href={item.href}
                                             className="text-xs hover:text-sm hover:hover:bg-[#f1e4db] h-20 flex items-center p-5  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
@@ -63,21 +63,21 @@ export default function Header() {
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
                                             {item.title}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
 
                                 {/* KERING Logo - centered */}
                                 <div className="mx-12">
-                                    <a href="/en/" className="flex items-center">
+                                    <Link href="/en/" className="flex items-center">
                                         <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo " width={140} height={50} />
-                                    </a>
+                                    </Link>
                                 </div>
 
                                 {/* Right navigation items */}
                                 <div className="flex items-center space-x-8">
                                     {rightNavItems.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.title}
                                             href={item.href}
                                             className="text-xs hover:text-sm hover:hover:bg-[#f1e4db] h-20 flex items-center p-3  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
@@ -85,7 +85,7 @@ export default function Header() {
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
                                             {item.title}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </nav>
@@ -100,12 +100,12 @@ export default function Header() {
                                 <Search className="h-5 w-5" />
                             </button>
 
-                            <a
+                            <Link
                                 href="/en/talent/job-offers/"
                                 className="hidden md:inline-flex px-4 py-2 text-xs font-medium text-[#a19174] hover:text-[#beb299] transition-colors duration-200"
                             >
                                 JOIN US
-                            </a>
+                            </Link>
 
                             {/* Mobile menu button */}
                             <button className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -127,23 +127,23 @@ export default function Header() {
                                 {/* Mobile navigation */}
                                 <div className="space-y-2">
                                     {[...leftNavItems, ...rightNavItems].map((item) => (
-                                        <a
+                                        <Link
                                             key={item.title}
                                             href={item.href}
                                             className="block py-2 text-base font-medium text-gray-900 hover:text-gray-600 transition-colors"
                                         >
                                             {item.title}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
 
                                 {/* Mobile Join Us button */}
-                                <a
+                                <Link
                                     href="/en/talent/job-offers/"
                                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-200"
                                 >
                                     JOIN US
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     )}

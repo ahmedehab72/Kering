@@ -47,7 +47,7 @@ export default function FinanceSection() {
         {/* Key Figures Card - Left */}
         <div className="hidden md:block md:absolute left-0 top-1/2 transform -translate-y-1/2 bg-stone-100 p-4 md:p-6 lg:p-8 w-56 md:w-64 lg:w-72 shadow-xl">
           <h3 className="text-base md:text-lg lg:text-xl font-light mb-2 text-stone-900 tracking-wide">KEY FIGURES</h3>
-          <p className="lg:relative lg:block hidden text-stone-700 text-xs md:text-sm leading-relaxed">Group's key financial data.</p>
+          <p className="lg:relative lg:block hidden text-stone-700 text-xs md:text-sm leading-relaxed">Groups key financial data.</p>
         </div>
 
         <div className="relativ z-30">

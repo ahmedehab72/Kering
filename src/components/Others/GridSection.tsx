@@ -48,7 +48,7 @@ export const GridSection = () => {
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
           <div className="absolute top-1/2 left-8 transform -translate-y-1/2  text-white ">
             <h2 className="text-3xl font-light leading-tight">
-              Kering Highlights - Art & Jewelry: A retrospective to spotlight Pomellato's legacy
+              Kering Highlights - Art & Jewelry: A retrospective to spotlight Pomellatos legacy
             </h2>
           </div>
         </div>
