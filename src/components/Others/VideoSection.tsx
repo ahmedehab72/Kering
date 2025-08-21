@@ -14,7 +14,7 @@ export default function SustainabilityVideo() {
   }
 
   return (
-    <section className="relative w-full h-[500px] my-10">
+    <section className="relative w-full h-[500px] my-6">
       {!isPlaying ? (
         <div className="relative w-full h-full cursor-pointer group" onClick={handlePlayClick}>
           <Image

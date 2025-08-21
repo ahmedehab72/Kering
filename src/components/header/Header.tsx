@@ -1,33 +1,47 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Search, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import LanguageSwitcher from "../Others/LanguageSwitcher"
 import HoverMenu from "./HoverMenu"
 import { leftNavItems, menuData, rightNavItems } from "./HoverMenuData"
-import { useParams } from "next/navigation"
 import MobileMenuOpen from "./MobileMenuOpen"
 import SearchOpen from "./SearchOpen"
+import { useLocalizedHref } from "@/lib/useLocalizedHref"
 
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [searchOpen, setSearchOpen] = useState(false)
     const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
+    const [showHeader, setShowHeader] = useState(true) // للتحكم في الظهور
+    const [lastScrollY, setLastScrollY] = useState(0) // عشان نعرف اتجاه الـ scroll
 
-    // استرجاع اللغة الحالية من المسار باستخدام useParams
-    const params = useParams()
-    const locale = typeof params.locale === 'string' ? params.locale : 'en' // الافتراضي هو الإنجليزية إذا لم يكن locale متاحًا
+    const { getLocalizedHref } = useLocalizedHref()
 
-    // دالة لإنشاء الرابط مع اللغة الحالية
-    const getLocalizedHref = (href: string) => `/${locale}${href}`
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > lastScrollY) {
+                // scrolling down
+                setShowHeader(false)
+            } else {
+                // scrolling up
+                setShowHeader(true)
+            }
+            setLastScrollY(window.scrollY)
+        }
 
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [lastScrollY])
     return (
         <>
-            <header className="w-full bg-white relative z-50">
-                <div className="max-w-none px-4 sm:px-8 lg:px-16">
+            <header
+                className={`w-full bg-white fixed top-0 left-0 z-50 transition-transform duration-300 ${showHeader ? "translate-y-0" : "-translate-y-full"
+                    }`}
+            >                <div className="max-w-none px-4 sm:px-8 lg:px-16">
                     <div className="flex items-center justify-between h-16">
                         {/* Left section - Share price and language */}
                         <div className="flex items-center space-x-6">
@@ -35,16 +49,16 @@ export default function Header() {
                                 <span className="text-gray-700">Share price</span>
                                 <span className="font-bold text-black">216,50 €</span>
                             </div>
-                            <div className="lg:hidden flex items-center">
-                                <Link href={getLocalizedHref('/')} className="flex items-center">
-                                    <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} />
-                                </Link>
-                            </div>
+
                             <LanguageSwitcher />
                             {/* KERING Logo - centered */}
 
                         </div>
-
+                        <div className="lg:hidden flex items-center">
+                            <Link href={getLocalizedHref('/')} className="flex items-center">
+                                <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} />
+                            </Link>
+                        </div>
                         {/* Center section - Navigation */}
                         <div className="hidden lg:flex items-center justify-center flex-1">
                             <nav className="flex items-center space-x-8">

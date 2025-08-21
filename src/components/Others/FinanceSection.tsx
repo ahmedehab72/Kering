@@ -31,7 +31,7 @@ export default function FinanceSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[400px] mt-10 overflow-hidden">
+    <section ref={sectionRef} className="relative w-full h-[400px] mt-6 overflow-hidden">
       <div className="absolute inset-0">
         <Image src="/images/finance-background.jpeg" alt="Finance background" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black/40"></div>
