@@ -1,36 +1,29 @@
 "use client"
 
 import { useState } from "react"
-import {  Search, Menu, X } from "lucide-react"
+import { Search, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import LanguageSwitcher from "../Others/LanguageSwitcher"
+import HoverMenu from "./HoverMenu"
+import { leftNavItems, menuData, rightNavItems } from "./HoverMenuData"
+import { useParams } from "next/navigation"
+import MobileMenuOpen from "./MobileMenuOpen"
+import SearchOpen from "./SearchOpen"
 
-
-const languages = [
-    { code: "en", name: "English", href: "/en/" },
-    { code: "fr", name: "Français", href: "/fr/" },
-    { code: "it", name: "Italiano", href: "/it/" },
-    { code: "cn", name: "简体中文", href: "/cn/" },
-    { code: "jp", name: "日本語", href: "/jp/" },
-]
-
-const leftNavItems = [
-    { title: "Group", href: "/en/group/" },
-    { title: "Houses", href: "/en/houses/" },
-    { title: "Talent", href: "/en/talent/" },
-]
-
-const rightNavItems = [
-    { title: "Sustainability", href: "/en/sustainability/" },
-    { title: "Finance", href: "/en/finance/" },
-    { title: "Press", href: "/en/press/" },
-]
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [searchOpen, setSearchOpen] = useState(false)
     const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
+
+    // استرجاع اللغة الحالية من المسار باستخدام useParams
+    const params = useParams()
+    const locale = typeof params.locale === 'string' ? params.locale : 'en' // الافتراضي هو الإنجليزية إذا لم يكن locale متاحًا
+
+    // دالة لإنشاء الرابط مع اللغة الحالية
+    const getLocalizedHref = (href: string) => `/${locale}${href}`
+
     return (
         <>
             <header className="w-full bg-white relative z-50">
@@ -38,11 +31,18 @@ export default function Header() {
                     <div className="flex items-center justify-between h-16">
                         {/* Left section - Share price and language */}
                         <div className="flex items-center space-x-6">
-                            <div className="hidden md:flex items-center space-x-2 text-sm">
+                            <div className="hidden xl:flex items-center space-x-2 text-sm">
                                 <span className="text-gray-700">Share price</span>
                                 <span className="font-bold text-black">216,50 €</span>
                             </div>
+                            <div className="lg:hidden flex items-center">
+                                <Link href={getLocalizedHref('/')} className="flex items-center">
+                                    <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} />
+                                </Link>
+                            </div>
                             <LanguageSwitcher />
+                            {/* KERING Logo - centered */}
+
                         </div>
 
                         {/* Center section - Navigation */}
@@ -53,8 +53,8 @@ export default function Header() {
                                     {leftNavItems.map((item) => (
                                         <Link
                                             key={item.title}
-                                            href={item.href}
-                                            className="text-xs hover:text-sm hover:bg-[#f1e4db] h-16 flex items-center p-5  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                                            href={getLocalizedHref(item.href)}
+                                            className="text-xs hover:text-sm hover:bg-[#f1e4db] h-16 flex items-center p-5 font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
                                             onMouseEnter={() => setHoveredMenu(item.title)}
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
@@ -64,9 +64,9 @@ export default function Header() {
                                 </div>
 
                                 {/* KERING Logo - centered */}
-                                <div className="mx-12">
-                                    <Link href="/en/" className="flex items-center">
-                                        <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo " width={140} height={50} />
+                                <div className="xl:mx-8 lg:mx-4 mx-2">
+                                    <Link href={getLocalizedHref('/')} className="flex items-center">
+                                        <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={140} height={50} />
                                     </Link>
                                 </div>
 
@@ -75,8 +75,8 @@ export default function Header() {
                                     {rightNavItems.map((item) => (
                                         <Link
                                             key={item.title}
-                                            href={item.href}
-                                            className="text-xs hover:text-sm hover:bg-[#f1e4dbc4] h-16 flex items-center p-3  font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
+                                            href={getLocalizedHref(item.href)}
+                                            className="text-xs hover:text-sm hover:bg-[#f1e4dbc4] h-16 flex items-center p-3 font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
                                             onMouseEnter={() => setHoveredMenu(item.title)}
                                             onMouseLeave={() => setHoveredMenu(null)}
                                         >
@@ -97,7 +97,7 @@ export default function Header() {
                             </button>
 
                             <Link
-                                href="/en/talent/job-offers/"
+                                href={getLocalizedHref('/joinUs')}
                                 className="hidden md:inline-flex px-4 py-2 text-xs font-medium text-[#a19174] hover:text-[#beb299] transition-colors duration-200"
                             >
                                 JOIN US
@@ -112,217 +112,19 @@ export default function Header() {
 
                     {/* Mobile menu */}
                     {mobileMenuOpen && (
-                        <div className="lg:hidden border-t border-gray-100 py-4 bg-white">
-                            <div className="flex flex-col space-y-4">
-                                {/* Mobile share price */}
-                                <div className="md:hidden flex items-center space-x-2 text-sm pb-2 border-b border-gray-100">
-                                    <span className="text-gray-700">Share price</span>
-                                    <span className="font-bold text-black">216,50 €</span>
-                                </div>
-
-                                {/* Mobile navigation */}
-                                <div className="space-y-2">
-                                    {[...leftNavItems, ...rightNavItems].map((item) => (
-                                        <Link
-                                            key={item.title}
-                                            href={item.href}
-                                            className="block py-2 text-base font-medium text-gray-900 hover:text-gray-600 transition-colors"
-                                        >
-                                            {item.title}
-                                        </Link>
-                                    ))}
-                                </div>
-
-                                {/* Mobile Join Us button */}
-                                <Link
-                                    href="/en/talent/job-offers/"
-                                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-900 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-200"
-                                >
-                                    JOIN US
-                                </Link>
-                            </div>
-                        </div>
+                        <MobileMenuOpen rightNavItems={rightNavItems} leftNavItems={leftNavItems} getLocalizedHref={getLocalizedHref} />
                     )}
                 </div>
 
-                {hoveredMenu && (
-                    <div
-                        className="absolute top-full left-0 w-screen bg-[#f1e4dbc4] z-40 py-8"
-                        onMouseEnter={() => setHoveredMenu(hoveredMenu)}
-                        onMouseLeave={() => setHoveredMenu(null)}
-                    >
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="text-white">
-                                <h3 className="text-xl font-bold mb-4">{hoveredMenu}</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-
-
-                                    <div>
-
-                                        <Link href={'/'} >
-                                            <div style={{
-                                                backgroundImage: `url('/images/heroImage5.png')`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                height: '80px',
-                                                borderRadius: '0.5rem',
-                                                marginBottom: '1rem',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}>
-                                                <h4 className="text-lg font-semibold text-white">Fragrance</h4>
-                                            </div>
-                                        </Link>
-                                        <ul>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Gucci</Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Saint Laurent </Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}>Bottega Veneta</Link></li>
-                                        </ul>
-                                    </div>
-
-                                    <div>
-
-                                        <Link href={'/'} >
-                                            <div style={{
-                                                backgroundImage: `url('/images/heroImage7.jpeg')`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                height: '80px',
-                                                borderRadius: '0.5rem',
-                                                marginBottom: '1rem',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}>
-                                                <h4 className="text-lg font-semibold text-white">Fragrance</h4>
-                                            </div>
-                                        </Link>
-                                        <ul>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Gucci</Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Saint Laurent </Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}>Bottega Veneta</Link></li>
-                                        </ul>
-                                    </div>
-
-                                    <div>
-
-                                        <Link href={'/'} >
-                                            <div style={{
-                                                backgroundImage: `url('/images/heroImage3.jpeg')`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                height: '80px',
-                                                borderRadius: '0.5rem',
-                                                marginBottom: '1rem',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}>
-                                                <h4 className="text-lg font-semibold text-white">Others</h4>
-                                            </div>
-                                        </Link>
-                                        <ul>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Gucci</Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Saint Laurent </Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}>Bottega Veneta</Link></li>
-                                        </ul>
-                                    </div>
-
-
-                                    <div>
-
-                                        <Link href={'/'} >
-                                            <div style={{
-                                                backgroundImage: `url('/images/heroImage2.jpeg')`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
-                                                height: '80px',
-                                                borderRadius: '0.5rem',
-                                                marginBottom: '1rem',
-                                                display: 'flex',
-                                                justifyContent: 'center',
-                                                alignItems: 'center',
-                                            }}>
-                                                <h4 className="text-lg font-semibold text-white">Fragrance</h4>
-                                            </div>
-                                        </Link>
-                                        <ul>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Gucci</Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}> Saint Laurent </Link></li>
-                                            <li><Link className=' text-xs text-black' href={'#'}>Bottega Veneta</Link></li>
-                                        </ul>
-                                    </div>
-
-
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {/* Dropdown menu */}
+                {hoveredMenu && menuData[hoveredMenu] && (
+                    <HoverMenu hoveredMenu={hoveredMenu} setHoveredMenu={setHoveredMenu} menuData={menuData} getLocalizedHref={getLocalizedHref} />
                 )}
             </header>
 
             {/* Search overlay */}
             {searchOpen && (
-                <div className="absolute left-16 right-16 h-2/3 inset-0 bg-[#f1e4dba2] z-40 transform transition-transform duration-300 ">
-                    <div className="max-w-4xl mx-auto px-4 py-8">
-                        <div className="flex items-center justify-between mb-8">
-                            <h2 className="text-2xl font-bold">Search</h2>
-                            <button onClick={() => setSearchOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
-                                <X className="h-6 w-6" />
-                            </button>
-                        </div>
-
-                        <div className="relative mb-8">
-                            <input
-                                type="search"
-                                placeholder="Search..."
-                                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                                autoFocus
-                            />
-                            <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                                <Search className="h-6 w-6 text-gray-400" />
-                            </button>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <h3 className="font-semibold mb-4">Filter by date</h3>
-                                <div className="space-y-2">
-                                    <label className="flex items-center space-x-2">
-                                        <input type="radio" name="sort" value="date_desc" className="text-gray-600" />
-                                        <span>From most recent to oldest</span>
-                                    </label>
-                                    <label className="flex items-center space-x-2">
-                                        <input type="radio" name="sort" value="date_asc" className="text-gray-600" />
-                                        <span>From oldest to most recent</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <h3 className="font-semibold mb-4">Filter by section</h3>
-                                <div className="space-y-2">
-                                    {["Sustainability", "Finance", "Press", "Talent", "Group", "Houses"].map((section) => (
-                                        <label key={section} className="flex items-center space-x-2">
-                                            <input
-                                                type="checkbox"
-                                                name="categories"
-                                                value={section.toLowerCase()}
-                                                className="text-gray-600"
-                                            />
-                                            <span>{section}</span>
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <SearchOpen setSearchOpen={setSearchOpen} />
             )}
         </>
     )
