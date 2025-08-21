@@ -34,12 +34,13 @@ export default async function LocaleLayout({
   params,
 }: {
   children: ReactNode
-  params: { locale: string }
-}) {
-  const awaitedParams = await params;
-  const { locale } = awaitedParams;
+params: Promise<{ locale: string }>}) {
+
+  const { locale } =await params
   const namespaces = ['common'];
   const { resources } = await initTranslations(locale, namespaces);
+
+  
   return (
     <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'}>
       <body
