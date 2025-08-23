@@ -45,10 +45,10 @@ export default function Header() {
                     <div className="flex items-center justify-between h-16">
                         {/* Left section - Share price and language */}
                         <div className="flex items-center space-x-6">
-                            <div className="hidden xl:flex items-center space-x-2 text-sm">
+                            {/* <div className="hidden xl:flex items-center space-x-2 text-sm">
                                 <span className="text-gray-700">Share price</span>
                                 <span className="font-bold text-black">216,50 €</span>
-                            </div>
+                            </div> */}
 
                             <LanguageSwitcher />
                             {/* KERING Logo - centered */}
@@ -56,14 +56,16 @@ export default function Header() {
                         </div>
                         <div className="lg:hidden flex items-center">
                             <Link href={getLocalizedHref('/')} className="flex items-center">
-                                <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} />
+                                {/* <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} /> */}
+                                        <span className="text-xl font-semibold text-center ">Ghadeer Ashoor</span>
+
                             </Link>
                         </div>
                         {/* Center section - Navigation */}
                         <div className="hidden lg:flex items-center justify-center flex-1">
-                            <nav className="flex items-center space-x-8">
+                            <nav className="flex items-center xl:space-x-8 space-x-4">
                                 {/* Left navigation items */}
-                                <div className="flex items-center space-x-8">
+                                <div className="flex items-center xl:space-x-8 space-x-4">
                                     {leftNavItems.map((item) => (
                                         <Link
                                             key={item.title}
@@ -78,14 +80,15 @@ export default function Header() {
                                 </div>
 
                                 {/* KERING Logo - centered */}
-                                <div className="xl:mx-8 lg:mx-4 mx-2">
+                                <div className="xl:mx-8 lg:mx-4 mx-2 w-[150px] ">
                                     <Link href={getLocalizedHref('/')} className="flex items-center">
-                                        <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={140} height={50} />
+                                        {/* <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={140} height={50} /> */}
+                                        <span className="text-xl font-semibold text-center ">Ghadeer Ashoor</span>
                                     </Link>
                                 </div>
 
                                 {/* Right navigation items */}
-                                <div className="flex items-center space-x-8">
+                                <div className="flex items-center xl:space-x-8 space-x-4">
                                     {rightNavItems.map((item) => (
                                         <Link
                                             key={item.title}

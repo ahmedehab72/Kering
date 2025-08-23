@@ -16,8 +16,8 @@ export default function HomePage() {
       <ArrowDown />
       <GridSection /> 
       <TalentSection />
-      <FinanceSection />
-      <VideoSection />
+      {/* <FinanceSection /> */}
+      {/* <VideoSection /> */}
     </main>
   );
 }

@@ -3,7 +3,9 @@
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
+import Link from "next/link"
+import { useLocalizedHref } from "@/lib/useLocalizedHref"
+import Image from "next/image"
 interface SlideData {
     id: number
     type: "image" | "video"
@@ -21,7 +23,7 @@ const slides: SlideData[] = [
         src: "/images/heroImage1.jpeg",
         brand: "Kering",
         title: "Endless Narratives",
-        link: "/kering",
+        link: "https://galabyga.com",
         thumbnail: "/images/BAL_STORY_BRAND_DESKTOP_522c10a8f7.png",
     },
     {
@@ -29,7 +31,7 @@ const slides: SlideData[] = [
         type: "image",
         src: "/images/heroImage2.jpeg",
         brand: "Gucci",
-        link: "/gucci",
+        link: "https://ghadeerashoor.com",
         thumbnail: "/images/Logo_Bottega_Veneta_V2_sur_fond_blanc_pour_pastille_homepage_5a9791d903.jpeg",
     },
     {
@@ -37,7 +39,7 @@ const slides: SlideData[] = [
         type: "video",
         src: "/images/heroImage3.jpeg",
         brand: "Saint Laurent",
-        link: "/saint-laurent",
+        link: "https://glimpsebyga.com",
         thumbnail: "/images/Logo_pastille_Brioni_Fond_Blanc_e04961a221.png",
     },
     {
@@ -45,7 +47,7 @@ const slides: SlideData[] = [
         type: "image",
         src: "/images/heroImage4.jpeg",
         brand: "Bottega Veneta",
-        link: "/bottega-veneta",
+        link: "https://gleambyga.com",
         thumbnail: "/images/Mc_Queen_logo_pastille_blanc_8eb8a70911.png",
     },
     {
@@ -53,33 +55,33 @@ const slides: SlideData[] = [
         type: "image",
         src: "/images/heroImage5.png",
         brand: "Balenciaga",
-        link: "/balenciaga",
+        link: "https://glidebyga.com",
         thumbnail: "/images/pastille_blanc_ginori_1735_9750923897.png",
     },
-    {
-        id: 6,
-        type: "video",
-        src: "/images/heroImage6.jpeg",
-        brand: "McQueen",
-        link: "/mcqueen",
-        thumbnail: "/images/Pastille_Pomellato_blanc_sept_21_624dfd5f08.png",
-    },
-    {
-        id: 7,
-        type: "image",
-        src: "/images/heroImage7.jpeg",
-        brand: "Brioni",
-        link: "/brioni",
-        thumbnail: "/images/STORY_BRAND_DESKTOP_BOUCHERON_d3fa49a775.png",
-    },
-    {
-        id: 8,
-        type: "image",
-        src: "/images/heroImage8.png",
-        brand: "Boucheron",
-        link: "/boucheron",
-        thumbnail: "/images/dodo_pastille_blanc_mai2021_b80e37b61f.png",
-    },
+    // {
+    //     id: 6,
+    //     type: "video",
+    //     src: "/images/heroImage6.jpeg",
+    //     brand: "McQueen",
+    //     link: "/mcqueen",
+    //     thumbnail: "/images/Pastille_Pomellato_blanc_sept_21_624dfd5f08.png",
+    // },
+    // {
+    //     id: 7,
+    //     type: "image",
+    //     src: "/images/heroImage7.jpeg",
+    //     brand: "Brioni",
+    //     link: "/brioni",
+    //     thumbnail: "/images/STORY_BRAND_DESKTOP_BOUCHERON_d3fa49a775.png",
+    // },
+    // {
+    //     id: 8,
+    //     type: "image",
+    //     src: "/images/heroImage8.png",
+    //     brand: "Boucheron",
+    //     link: "/boucheron",
+    //     thumbnail: "/images/dodo_pastille_blanc_mai2021_b80e37b61f.png",
+    // },
 ]
 
 export default function HeroSlider() {
@@ -91,7 +93,7 @@ export default function HeroSlider() {
 
     const SLIDE_DURATION = 5000 // 5 seconds per slide
     const PROGRESS_INTERVAL = 50 // Update progress every 50ms
-
+    const { getLocalizedHref } = useLocalizedHref()
     useEffect(() => {
         if (isPlaying) {
             startSlideTimer()
@@ -216,19 +218,37 @@ export default function HeroSlider() {
                         <div className="h-full bg-[#f5b588] transition-all duration-75 ease-linear" style={{ width: `${progress}%` }} />
                     </div>
                     {slides.map((slide, index) => (
-                        <button
+                        <Link
                             key={slide.id}
-                            onClick={() => goToSlide(index)}
+                            href={slide.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`flex-shrink-0 rounded-full p-1 cursor-pointer transition-all duration-300 ${index === currentSlide ? "bg-white shadow-lg" : "bg-white/20 hover:bg-white/40"
                                 }`}
                         >
-                            <img
+                            <Image
                                 src={slide.thumbnail || "/placeholder.svg"}
                                 alt={slide.brand}
-                                className={`h-12 w-12 rounded-full object-cover transition-all ${index === currentSlide ? "opacity-100" : "opacity-70"
+                                className={`h-14 w-14 rounded-full object-cover transition-all ${index === currentSlide ? "opacity-100" : "opacity-70"
                                     }`}
+                                width={500}
+                                height={500}
                             />
-                        </button>
+                        </Link>
+
+                        // <button
+                        //     key={slide.id}
+                        //     onClick={() => goToSlide(index)}
+                        //     className={`flex-shrink-0 rounded-full p-1 cursor-pointer transition-all duration-300 ${index === currentSlide ? "bg-white shadow-lg" : "bg-white/20 hover:bg-white/40"
+                        //         }`}
+                        // >
+                        //     <img
+                        //         src={slide.thumbnail || "/placeholder.svg"}
+                        //         alt={slide.brand}
+                        //         className={`h-12 w-12 rounded-full object-cover transition-all ${index === currentSlide ? "opacity-100" : "opacity-70"
+                        //             }`}
+                        //     />
+                        // </button>
                     ))}
                 </div>
             </div>

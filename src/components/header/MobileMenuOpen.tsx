@@ -16,10 +16,10 @@ const MobileMenuOpen = ({ leftNavItems, rightNavItems, getLocalizedHref }: Mobil
         <div className="lg:hidden border-t border-gray-100 py-4 bg-white">
             <div className="flex flex-col space-y-4">
                 {/* Mobile share price */}
-                <div className="lg:hidden flex items-center space-x-2 text-sm pb-2 border-b border-gray-100">
+                {/* <div className="lg:hidden flex items-center space-x-2 text-sm pb-2 border-b border-gray-100">
                     <span className="text-gray-700">Share price</span>
                     <span className="font-bold text-black">216,50 €</span>
-                </div>
+                </div> */}
 
                 {/* Mobile navigation */}
                 <div className="space-y-2">

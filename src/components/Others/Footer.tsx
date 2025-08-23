@@ -1,20 +1,24 @@
 'use client'
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react"
+import Image from "next/image"
 import { useTranslation } from "react-i18next"
 
 export default function Footer() {
   const { t } = useTranslation()
   return (
-    <footer className="  px-4 sm:px-8 lg:px-16 mb-8 ">
+    <footer className=" py-6 px-4 sm:px-8 lg:px-16 mb-8 ">
       <div className="bg-[#f1e4db] p-6">
         <div className="max-w-4xl mx-auto text-center ">
           {/* Kering Logo */}
-          <div className="">
-            <img
+          <div className="mb-12">
+            {/* <Image
               src="/images/logofooter.png"
               alt="Kering Logo"
               className="h-24 w-44 mx-auto mb-4"
-            />
+              width={500}
+              height={500}
+            /> */}
+              <span className="text-2xl font-semibold text-center ">Ghadeer Ashoor</span>
 
           </div>
 
