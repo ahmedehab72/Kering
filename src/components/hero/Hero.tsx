@@ -24,7 +24,7 @@ const slides: SlideData[] = [
         brand: "Kering",
         title: "Endless Narratives",
         link: "https://galabyga.com",
-        thumbnail: "/images/BAL_STORY_BRAND_DESKTOP_522c10a8f7.png",
+        thumbnail: "/images/logos/galalogo.png",
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ const slides: SlideData[] = [
         src: "/images/heroImage2.jpeg",
         brand: "Gucci",
         link: "https://ghadeerashoor.com",
-        thumbnail: "/images/Logo_Bottega_Veneta_V2_sur_fond_blanc_pour_pastille_homepage_5a9791d903.jpeg",
+        thumbnail: "/images/logos/ghadeerlogo.png",
     },
     {
         id: 3,
@@ -40,7 +40,7 @@ const slides: SlideData[] = [
         src: "/images/heroImage3.jpeg",
         brand: "Saint Laurent",
         link: "https://glimpsebyga.com",
-        thumbnail: "/images/Logo_pastille_Brioni_Fond_Blanc_e04961a221.png",
+        thumbnail: "/images/logos/glimpselogo.png",
     },
     {
         id: 4,
@@ -48,7 +48,7 @@ const slides: SlideData[] = [
         src: "/images/heroImage4.jpeg",
         brand: "Bottega Veneta",
         link: "https://gleambyga.com",
-        thumbnail: "/images/Mc_Queen_logo_pastille_blanc_8eb8a70911.png",
+        thumbnail: "/images/logos/gleamlogo.png",
     },
     {
         id: 5,
@@ -56,32 +56,9 @@ const slides: SlideData[] = [
         src: "/images/heroImage5.png",
         brand: "Balenciaga",
         link: "https://glidebyga.com",
-        thumbnail: "/images/pastille_blanc_ginori_1735_9750923897.png",
+        thumbnail: "/images/logos/glidelogo.png",
     },
-    // {
-    //     id: 6,
-    //     type: "video",
-    //     src: "/images/heroImage6.jpeg",
-    //     brand: "McQueen",
-    //     link: "/mcqueen",
-    //     thumbnail: "/images/Pastille_Pomellato_blanc_sept_21_624dfd5f08.png",
-    // },
-    // {
-    //     id: 7,
-    //     type: "image",
-    //     src: "/images/heroImage7.jpeg",
-    //     brand: "Brioni",
-    //     link: "/brioni",
-    //     thumbnail: "/images/STORY_BRAND_DESKTOP_BOUCHERON_d3fa49a775.png",
-    // },
-    // {
-    //     id: 8,
-    //     type: "image",
-    //     src: "/images/heroImage8.png",
-    //     brand: "Boucheron",
-    //     link: "/boucheron",
-    //     thumbnail: "/images/dodo_pastille_blanc_mai2021_b80e37b61f.png",
-    // },
+
 ]
 
 export default function HeroSlider() {
@@ -215,7 +192,7 @@ export default function HeroSlider() {
                 <div className="mx-auto flex space-x-10 items-center justify-center overflow-x-auto">
                     {/* Progress Bar */}
                     <div className="absolute top-0 left-0 h-1 w-full bg-white/20">
-                        <div className="h-full bg-[#f5b588] transition-all duration-75 ease-linear" style={{ width: `${progress}%` }} />
+                        <div className="h-full bg-[#f5be9a]  transition-all duration-75 ease-linear" style={{ width: `${progress}%` }} />
                     </div>
                     {slides.map((slide, index) => (
                         <Link
@@ -223,16 +200,16 @@ export default function HeroSlider() {
                             href={slide.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex-shrink-0 rounded-full p-1 cursor-pointer transition-all duration-300 ${index === currentSlide ? "bg-white shadow-lg" : "bg-white/20 hover:bg-white/40"
+                            className={`flex-shrink-0 rounded-full p-1 cursor-pointer transition-all duration-300 ${index === currentSlide ? "bg-[#f5be9a] shadow-lg" : "bg-[#eec1a2] hover:bg-[#ebb997]"
                                 }`}
                         >
                             <Image
                                 src={slide.thumbnail || "/placeholder.svg"}
                                 alt={slide.brand}
-                                className={`h-14 w-14 rounded-full object-cover transition-all ${index === currentSlide ? "opacity-100" : "opacity-70"
+                                className={`h-16 w-16  rounded-full object-cover transition-all ${index === currentSlide ? "opacity-100" : "opacity-70"
                                     }`}
-                                width={500}
-                                height={500}
+                                width={1000}
+                                height={1000}
                             />
                         </Link>
 
