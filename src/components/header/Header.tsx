@@ -114,10 +114,10 @@ export default function Header() {
                             </button>
 
                             <Link
-                                href={getLocalizedHref('/joinUs')}
-                                className="hidden md:inline-flex px-4 py-2 text-xs font-medium text-[#a19174] hover:text-[#beb299] transition-colors duration-200"
+                                href={getLocalizedHref('/contact')}
+                                className="hidden md:inline-flex px-4 py-2 text-xs font-medium text-gray-600 hover:text-gray-500 transition-colors duration-200"
                             >
-                                JOIN US
+                                Contact US
                             </Link>
 
                             {/* Mobile menu button */}

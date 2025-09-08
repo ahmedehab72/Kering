@@ -44,7 +44,7 @@ export default function LanguageSwitcher() {
       <DropdownMenuContent
         side="right"
         align="end"
-        className="flex py-3 border-none bg-[#f1e4db] animate-slide-down"
+        className="flex py-3 border-none bg-gray-200/60 animate-slide-down"
       >
         {languages.map((lang) => (
           <DropdownMenuItem
