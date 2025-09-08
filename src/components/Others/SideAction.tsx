@@ -45,7 +45,7 @@ const SideAction = () => {
 
             {/* Search overlay */}
             {searchOpen && (
-                <div className="absolute left-16 right-16 h-2/3 inset-0 bg-[#f1e4dba2] z-40 transform transition-transform duration-300">
+                <div className="absolute left-16 right-16 h-2/3 inset-0 bg-gray-200/60 z-40 transform transition-transform duration-300">
                     <div className="max-w-4xl mx-auto px-4 py-8">
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-2xl font-bold">Search</h2>
