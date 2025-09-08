@@ -26,7 +26,7 @@ type HoverMenuProps = {
 const HoverMenu: React.FC<HoverMenuProps> = ({ hoveredMenu, setHoveredMenu, menuData, getLocalizedHref }) => {
     return (
         <div
-            className="absolute top-full left-0 w-screen bg-[#f1e4dbc4] z-40 py-8"
+            className="absolute top-full left-0 w-screen bg-gray-100/90  z-40 py-8"
             onMouseEnter={() => setHoveredMenu(hoveredMenu)}
             onMouseLeave={() => setHoveredMenu(null)}
         >
