@@ -57,7 +57,7 @@ export default function Header() {
                         <div className="lg:hidden flex items-center">
                             <Link href={getLocalizedHref('/')} className="flex items-center">
                                 {/* <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={100} height={40} /> */}
-                                        <span className="text-xl font-semibold text-center ">Ghadeer Ashoor</span>
+                                        <span className="text-xl font-semibold text-center ">GA Group</span>
 
                             </Link>
                         </div>
@@ -83,7 +83,7 @@ export default function Header() {
                                 <div className="xl:mx-8 lg:mx-4 mx-2 w-[150px] ">
                                     <Link href={getLocalizedHref('/')} className="flex items-center">
                                         {/* <Image src={'/images/WHITE-LOGO-KERING.png'} alt="kering logo" width={140} height={50} /> */}
-                                        <span className="text-xl font-semibold text-center ">Ghadeer Ashoor</span>
+                                        <span className="text-xl font-semibold text-center ">GA Group</span>
                                     </Link>
                                 </div>
 

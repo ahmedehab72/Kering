@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useTranslation()
   return (
     <footer className=" py-6 px-4 sm:px-8 lg:px-16 mb-8 ">
-      <div className="bg-[#f1e4db] p-6">
+      <div className="bg-gray-200/70 p-6">
         <div className="max-w-4xl mx-auto text-center ">
           {/* Kering Logo */}
           <div className="mb-12">
