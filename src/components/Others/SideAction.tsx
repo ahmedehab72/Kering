@@ -13,27 +13,27 @@ const SideAction = () => {
             <div className="lg:fixed hidden right-3 top-1/2 -translate-y-1/2 lg:flex flex-col justify-center items-center gap-4 p-2">
                 <button
                     onClick={() => setSearchOpen(!searchOpen)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2 rounded-full transition-colors"
                 >
                     {searchOpen ? (
-                        <X className="h-6 w-6 text-gray-600" />
+                        <X className="h-6 w-6 hover:text-gray-100 text-white" />
                     ) : (
-                        <Search className="h-6 w-6 text-gray-600" />
+                        <Search className="h-6 w-6 hover:text-gray-100 text-white" />
                     )}
                 </button>
                 <button
                     onClick={() => setShareOpen(!shareOpen)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2  rounded-full transition-colors"
                 >
-                    <svg className="h-5 w-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="h-5 w-5 hover:text-gray-100 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
                     </svg>
                 </button>
                 <button
                     onClick={() => setFavoritesOpen(!favoritesOpen)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="p-2  rounded-full transition-colors"
                 >
-                    <svg className="h-5 w-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="h-5 w-5 hover:text-gray-100 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path
                             fillRule="evenodd"
                             d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
@@ -49,7 +49,7 @@ const SideAction = () => {
                     <div className="max-w-4xl mx-auto px-4 py-8">
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-2xl font-bold">Search</h2>
-                            <button onClick={() => setSearchOpen(false)} className="p-2 hover:bg-gray-100 rounded-full">
+                            <button onClick={() => setSearchOpen(false)} className="p-2  rounded-full">
                                 <X className="h-6 w-6" />
                             </button>
                         </div>

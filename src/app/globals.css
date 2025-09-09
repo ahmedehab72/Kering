@@ -76,6 +76,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-geist-sans: "Delius", cursive;
 }
 
 .dark {
@@ -120,17 +121,14 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* Grid layout styles for the luxury grid section */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, minmax(200px, 1fr));
-  /* gap: 2px; */
-  height: 100vh;
-  min-height: 1400px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
   width: 100%;
   margin-bottom: 20px;
+  min-height: 700px;
 }
 
 .grid-item {
@@ -140,131 +138,48 @@
   transition: all 0.3s ease;
 }
 
-.grid-item:hover {
-  z-index: 10;
-}
-
-/* Grid area assignments matching the reference layout */
+/* توزيع العناصر */
 .grid-item-1 {
-  grid-area: 1 / 1 / 3 / 3;
+  grid-area: 1 / 1 / 3 / 2; /* عمودين وصف */
 }
 
 .grid-item-2 {
-  grid-area: 1 / 3 / 2 / 4;
+  grid-area: 3 / 1 / 5 / 2; /* باقي الصف الأول */
 }
 
 .grid-item-3 {
-  grid-area: 1 / 4 / 2 / 7;
+  grid-area: 1 / 2 / 5 / 3; /* عمودين وصفين */
 }
 
 .grid-item-4 {
-  grid-area: 2 / 3 / 3 / 6;
+  grid-area: 1 / 3 / 3 / 4; /* عمودين وصف */
 }
 
 .grid-item-5 {
-  grid-area: 2 / 6 / 3 / 7;
+  grid-area: 3 / 3 / 5 / 4; /* باقي الصف */
 }
-
-.grid-item-6 {
-  grid-area: 3 / 1 / 4 / 3;
-}
-
-.grid-item-7 {
-  grid-area: 4 / 1 / 5 / 3;
-}
-
-.grid-item-8 {
-  grid-area: 3 / 3 / 5 / 5;
-}
-
-.grid-item-9 {
-  grid-area: 4 / 5 / 5 / 7;
-}
-
-.grid-item-10 {
-  grid-area: 3 / 5 / 4 / 7;
-}
-
-/* Responsive adjustments */
 @media (max-width: 1024px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, minmax(150px, 1fr));
-    height: auto;
-    min-height: 800px;
+    grid-template-rows: auto;
   }
 
   .grid-item-1 {
-    grid-area: 1 / 1 / 3 / 3;
+    grid-area: 1 / 1 / 2 / 3;
   }
   .grid-item-2 {
     grid-area: 1 / 3 / 2 / 5;
   }
   .grid-item-3 {
-    grid-area: 2 / 3 / 4 / 5;
+    grid-area: 2 / 1 / 4 / 3;
   }
   .grid-item-4 {
-    grid-area: 3 / 1 / 5 / 3;
+    grid-area: 2 / 3 / 3 / 5;
   }
   .grid-item-5 {
-    grid-area: 4 / 3 / 5 / 5;
-  }
-  .grid-item-6 {
-    grid-area: 5 / 1 / 6 / 2;
-  }
-  .grid-item-7 {
-    grid-area: 5 / 2 / 6 / 3;
-  }
-  .grid-item-8 {
-    grid-area: 5 / 3 / 6 / 5;
-  }
-  .grid-item-9 {
-    grid-area: 6 / 1 / 7 / 2;
-  }
-  .grid-item-10 {
-    grid-area: 6 / 2 / 7 / 3;
+    grid-area: 3 / 3 / 4 / 5;
   }
 }
-
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, minmax(120px, 200px));
-    min-height: 1200px;
-  }
-
-  .grid-item-1 {
-    grid-area: 1 / 1 / 3 / 3;
-  }
-  .grid-item-2 {
-    grid-area: 3 / 1 / 4 / 2;
-  }
-  .grid-item-3 {
-    grid-area: 3 / 2 / 5 / 3;
-  }
-  .grid-item-4 {
-    grid-area: 4 / 1 / 6 / 2;
-  }
-  .grid-item-5 {
-    grid-area: 5 / 2 / 6 / 3;
-  }
-  .grid-item-6 {
-    grid-area: 6 / 1 / 7 / 2;
-  }
-  .grid-item-7 {
-    grid-area: 6 / 2 / 7 / 3;
-  }
-  .grid-item-8 {
-    grid-area: 7 / 1 / 9 / 3;
-  }
-  .grid-item-9 {
-    grid-area: 9 / 1 / 10 / 2;
-  }
-  .grid-item-10 {
-    grid-area: 9 / 2 / 10 / 3;
-  }
-}
-
 
 
 /* Sustainability video section styles */
@@ -347,7 +262,12 @@
 .watercolor-flowers {
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(186, 144, 186, 0.7) 0%, rgba(220, 180, 220, 0.4) 50%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(186, 144, 186, 0.7) 0%,
+    rgba(220, 180, 220, 0.4) 50%,
+    transparent 70%
+  );
   top: 20%;
   left: 15%;
   animation: float 6s ease-in-out infinite;
@@ -356,7 +276,12 @@
 .watercolor-leaves {
   width: 300px;
   height: 300px;
-  background: radial-gradient(ellipse, rgba(144, 186, 144, 0.6) 0%, rgba(180, 220, 180, 0.3) 50%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(144, 186, 144, 0.6) 0%,
+    rgba(180, 220, 180, 0.3) 50%,
+    transparent 70%
+  );
   top: 30%;
   right: 20%;
   animation: float 8s ease-in-out infinite reverse;
@@ -368,7 +293,11 @@
   right: 15%;
   width: 150px;
   height: 200px;
-  background: linear-gradient(45deg, rgba(60, 60, 60, 0.8) 0%, rgba(40, 40, 40, 0.6) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(60, 60, 60, 0.8) 0%,
+    rgba(40, 40, 40, 0.6) 100%
+  );
   clip-path: polygon(
     30% 0%,
     70% 0%,
@@ -486,4 +415,3 @@
     height: 150px;
   }
 }
-
