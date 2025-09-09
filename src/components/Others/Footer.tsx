@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="max-w-4xl mx-auto text-center ">
           {/* Kering Logo */}
           <div className="mb-12">
-            {/* <Image
+            {/* <Image  
               src="/images/logofooter.png"
               alt="Kering Logo"
               className="h-24 w-44 mx-auto mb-4"

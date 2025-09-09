@@ -5,7 +5,7 @@ import { ArrowDown } from "../Others/ArrowDown";
 
 const HeroSection = () => {
   return (
-    <section id="home" className=" relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className=" relative lg:min-h-screen min-h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 

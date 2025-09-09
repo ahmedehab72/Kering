@@ -60,19 +60,19 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-body font-medium transition-all duration-300 relative group text-xs ${
+                className={`font-body font-medium transition-all duration-300 relative group text-sm ${
                   isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary-light'
                 }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
                     {/* Logo */}
           <div className="font-display text-2xl font-bold text-white lg:mx-20 mx-0">
-            {isScrolled ? <Image src={'/images/GAGroupLogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-10 w-22"/> :
-            <Image src={'/images/logos/ghadeerlogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-10 w-22"/>}
+            {isScrolled ? <Image src={'/images/GAGroupLogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-12 w-24"/> :
+            <Image src={'/images/logos/ghadeerlogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-12 w-24"/>}
           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -80,12 +80,12 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-body font-medium transition-all duration-300 relative group text-xs ${
+                className={`font-body font-medium transition-all duration-300 relative group text-sm ${
                   isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary-light'
                 }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 const TalentSection = () => {
   return (
     <div
-    className="max-w-7xl mx-auto mt-12"
+    className=" mt-12"
     style={{
         backgroundImage: "url('/images/heroImage2.jpeg')",
         backgroundSize: "cover",
