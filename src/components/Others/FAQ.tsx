@@ -17,8 +17,11 @@ export function FAQ() {
     <div id="faq" className="max-w-7xl mx-auto my-0 py-20 px-4" ref={ref}>
       <h2
         className="text-center mb-12 text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r
-         from-gray-700 to-gray-200 dark:from-gray-200 dark:to-gray-500 mb-6"
-      > FA Questions </h2>
+         from-gray-700 to-gray-200 dark:from-gray-200 dark:to-gray-500 "
+      >
+        {" "}
+        FA Questions{" "}
+      </h2>
 
       <Accordion
         type="single"

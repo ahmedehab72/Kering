@@ -19,7 +19,7 @@ const Navigation = () => {
   const navItemsLeft = [
     { href: "#about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
-    { href: "#partner", label: "PARTNER" },
+    { href: "#News", label: "NEWS" },
   ];
   const navItemsRight = [
     { href: "#feature", label: "FEATURE" },
@@ -58,7 +58,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-body font-medium transition-all duration-300 relative group text-sm ${
+                className={`font-body font-medium transition-all duration-300 relative group text-sm cursor-pointer ${
                   isScrolled
                     ? "text-foreground hover:text-primary"
                     : "text-white hover:text-primary-light"
@@ -95,7 +95,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className={`font-body font-medium transition-all duration-300 relative group text-sm ${
+                className={`font-body font-medium transition-all duration-300 relative group text-sm cursor-pointer ${
                   isScrolled
                     ? "text-foreground hover:text-primary"
                     : "text-white hover:text-primary-light"
@@ -128,7 +128,7 @@ const Navigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left px-4 py-2 font-body font-medium text-foreground hover:text-primary transition-colors"
+                  className="text-left px-4 py-2 font-body font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
                 >
                   {item.label}
                 </button>

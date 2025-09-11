@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className=" relative lg:min-h-screen min-h-[80vh] flex items-center justify-center overflow-hidden"
+      className=" relative lg:min-h-[85vh] min-h-[80vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
@@ -26,7 +26,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center mt-12 px-6 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 fade-in-up">
           GA Group
         </h1>

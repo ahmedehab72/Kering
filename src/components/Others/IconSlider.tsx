@@ -1,78 +1,75 @@
-'use client'; 
+"use client";
 
-import { motion } from "framer-motion"
-import {
-  Code,
-  Database,
-  Smartphone,
-  Globe,
-  Cpu,
-  Cloud,
-  Shield,
-  Zap,
-  Brain,
-  Palette,
-  Camera,
-  Music,
-  Video,
-  Gamepad2,
-} from "lucide-react"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
 
 const IconSlider = () => {
-  const technologies = [
-    { icon: Code, name: "Programming" },
-    { icon: Database, name: "Database" },
-    { icon: Smartphone, name: "Mobile Dev" },
-    { icon: Globe, name: "Web Dev" },
-    { icon: Cpu, name: "AI & ML" },
-    { icon: Cloud, name: "Cloud" },
-    { icon: Shield, name: "Security" },
-    { icon: Zap, name: "DevOps" },
-    { icon: Brain, name: "Data Science" },
-    { icon: Palette, name: "Design" },
-    { icon: Camera, name: "Photography" },
-    { icon: Music, name: "Audio" },
-    { icon: Video, name: "Video" },
-    { icon: Gamepad2, name: "Gaming" },
-  ]
+  const partners = [
+    { image: "/images/partnerSlider/p1.png", link: "#", name: "Partner 1" },
+    { image: "/images/partnerSlider/p2.png", link: "#", name: "Partner 2" },
+    { image: "/images/partnerSlider/p3.png", link: "#", name: "Partner 3" },
+    { image: "/images/partnerSlider/p4.png", link: "#", name: "Partner 4" },
+    { image: "/images/partnerSlider/p5.png", link: "#", name: "Partner 5" },
+    { image: "/images/partnerSlider/p1.png", link: "#", name: "Partner 1" },
+    { image: "/images/partnerSlider/p2.png", link: "#", name: "Partner 2" },
+    { image: "/images/partnerSlider/p3.png", link: "#", name: "Partner 3" },
+    { image: "/images/partnerSlider/p4.png", link: "#", name: "Partner 4" },
+    { image: "/images/partnerSlider/p5.png", link: "#", name: "Partner 5" },
+  ];
 
-  const duplicatedTechnologies = [...technologies, ...technologies]
+  // duplicate to create infinite loop
+  const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section id='partner' className="py-0 bg-background overflow-hidden ">
-      <div className="relative">
+    <section id="partner" className="py-16 bg-background overflow-hidden">
+      <h2
+        className="text-center mb-10 text-4xl md:text-5xl font-bold text-transparent bg-clip-text 
+        bg-gradient-to-r from-gray-700 to-gray-200 dark:from-gray-200 dark:to-gray-500"
+      >
+        Partnerships
+      </h2>
+
+      <div className="relative w-full">
         {/* Gradient overlays for fade effect */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-background to-transparent z-10"></div>
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10"></div>
 
         {/* Sliding container */}
         <motion.div
-          animate={{ x: [0, -50 * technologies.length] }}
+          animate={{ x: [0, -150 * partners.length] }}
           transition={{
-            duration: 20,
+            duration: 25,
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex space-x-8"
-          style={{ width: `${100 * technologies.length}%` }}
+          className="flex space-x-12"
         >
-          {duplicatedTechnologies.map((tech, index) => (
-            <div
-              key={`${tech.name}-${index}`}
-              className="flex-shrink-0 flex flex-col items-center justify-center p-6 min-w-[120px] group"
+          {duplicatedPartners.map((partner, index) => (
+            <Link
+              key={`${partner.name}-${index}`}
+              href={partner.link}
+              target="_blank"
+              className="flex-shrink-0 flex flex-col items-center justify-center min-w-[120px] group"
             >
-              <div className="w-12 h-12 bg-card rounded-xl shadow-sm flex items-center justify-center mb-2 group-hover:shadow-md transition-shadow">
-                <tech.icon className="w-6 h-6 text-muted-foreground" />
+              <div className="w-24 h-24 rounded-full overflow-hidden shadow-md group-hover:shadow-xl transition-all">
+                <Image
+                  src={partner.image}
+                  alt={partner.name}
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="text-sm font-medium text-foreground/80 text-center">
-                {tech.name}
+              <span className="text-sm font-medium text-foreground/80 mt-3">
+                {partner.name}
               </span>
-            </div>
+            </Link>
           ))}
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default IconSlider
+export default IconSlider;
