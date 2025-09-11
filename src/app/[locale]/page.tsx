@@ -20,8 +20,8 @@ export default function HomePage() {
       <GridSection /> 
       <OurFeatures />
       <IconSlider />
+      <TalentSection />
       <FAQ />
-      {/* <TalentSection /> */}
       {/* <FinanceSection /> */}
       {/* <VideoSection /> */}
     </main>

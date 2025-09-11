@@ -23,13 +23,17 @@ const IconSlider = () => {
 
   return (
     <section id="partner" className="py-16 bg-background overflow-hidden">
-      <h2
-        className="text-center mb-10 text-4xl md:text-5xl font-bold text-transparent bg-clip-text 
-        bg-gradient-to-r from-gray-700 to-gray-200 dark:from-gray-200 dark:to-gray-500"
-      >
-        Partnerships
-      </h2>
-
+        <div
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Part<span className="text-transparent bg-clip-text bg-gradient-to-r
+             from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">nerShip</span>
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Discover the powerful features that make .
+          </p>
+        </div>
       <div className="relative w-full">
         {/* Gradient overlays for fade effect */}
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10"></div>

@@ -15,14 +15,18 @@ export function FAQ() {
 
   return (
     <div id="faq" className="max-w-7xl mx-auto my-0 py-20 px-4" ref={ref}>
-      <h2
-        className="text-center mb-12 text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r
-         from-gray-700 to-gray-200 dark:from-gray-200 dark:to-gray-500 "
-      >
-        {" "}
-        FA Questions{" "}
-      </h2>
 
+        <div
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            FA <span className="text-transparent bg-clip-text bg-gradient-to-r
+             from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">Questions</span>
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Discover the powerful features that make .
+          </p>
+        </div>
       <Accordion
         type="single"
         collapsible
