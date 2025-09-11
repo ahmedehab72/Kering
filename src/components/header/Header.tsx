@@ -1,7 +1,7 @@
-'use client'
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+"use client";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,32 +12,32 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItemsLeft = [
-    { href: '#home', label: 'HOME' },
-    { href: '#about', label: 'ABOUT' },
-    { href: '#gallery', label: 'GALLERY' },
+    { href: "#about", label: "ABOUT" },
+    { href: "#division", label: "DIVISION" },
+    { href: "#partner", label: "PARTNER" },
   ];
   const navItemsRight = [
-    { href: '#gallery', label: 'GALLERY' },
-    { href: '#testimonials', label: 'TESTIMONILS' },
-    { href: '#contact', label: 'CONTACT' },
+    { href: "#feature", label: "FEATURE" },
+    { href: "#images", label: "IMAGES" },
+    { href: "#contact", label: "CONTACT" },
   ];
   const navItems = [
-    { href: '#home', label: 'HOME' },
-    { href: '#about', label: 'ABOUT' },
-    { href: '#gallery', label: 'GALLERY' },
-    { href: '#testimonials', label: 'TESTIMONILS' },
-    { href: '#contact', label: 'CONTACT' },
+    { href: "#about", label: "ABOUT" },
+    { href: "#division", label: "DIVISION" },
+    { href: "#feature", label: "FEATURE" },
+    { href: "#images", label: "IMAGES" },
+    { href: "#contact", label: "CONTACT" },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
   };
@@ -46,14 +46,12 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-[var(--shadow-soft)]'
-          : 'bg-transparent'
+          ? "bg-background/95 backdrop-blur-md shadow-[var(--shadow-soft)]"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center lg:justify-center justify-between ">
-
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItemsLeft.map((item) => (
@@ -61,7 +59,9 @@ const Navigation = () => {
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className={`font-body font-medium transition-all duration-300 relative group text-sm ${
-                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary-light'
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white hover:text-primary-light"
                 }`}
               >
                 {item.label}
@@ -69,10 +69,25 @@ const Navigation = () => {
               </button>
             ))}
           </div>
-                    {/* Logo */}
+          {/* Logo */}
           <div className="font-display text-2xl font-bold text-white lg:mx-20 mx-0">
-            {isScrolled ? <Image src={'/images/GAGroupLogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-12 w-24"/> :
-            <Image src={'/images/logos/ghadeerlogo.png'}  width={500} height={100} alt="GA Group Logo" className="h-12 w-24"/>}
+            {isScrolled ? (
+              <Image
+                src={"/images/GAGroupLogo.png"}
+                width={500}
+                height={100}
+                alt="GA Group Logo"
+                className="h-12 w-24"
+              />
+            ) : (
+              <Image
+                src={"/images/logos/ghadeerlogo.png"}
+                width={500}
+                height={100}
+                alt="GA Group Logo"
+                className="h-12 w-24"
+              />
+            )}
           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -81,7 +96,9 @@ const Navigation = () => {
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 className={`font-body font-medium transition-all duration-300 relative group text-sm ${
-                  isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary-light'
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white hover:text-primary-light"
                 }`}
               >
                 {item.label}
@@ -94,7 +111,9 @@ const Navigation = () => {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary-light'
+              isScrolled
+                ? "text-foreground hover:text-primary"
+                : "text-white hover:text-primary-light"
             }`}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
