@@ -5,31 +5,40 @@ import { ArrowDown } from "../Others/ArrowDown";
 
 const HeroSection = () => {
   return (
-    <section id="home" className=" relative lg:min-h-screen min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section
+      id="home"
+      className=" relative lg:min-h-screen min-h-[80vh] flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src={'/images/contact.jpg'} 
-          width={3000}
-          height={3000}
-          alt="Luxury event planning by GA Group"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/contact.jpg" // الصورة اللي تظهر قبل تحميل الفيديو
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 hero-overlay"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 fade-in-up">
-         GA Group
-
+          GA Group
         </h1>
-        
-        <p className="text-lg md:text-xl text-gray-300 my-10 max-w-2xl mx-auto fade-in-up " style={{animationDelay: '0.2s'}}>
-          GA Group brings together five premier divisions to create extraordinary experiences across weddings, events, design, and lifestyle.
+
+        <p
+          className="text-lg md:text-xl text-gray-300 my-10 max-w-2xl mx-auto fade-in-up "
+          style={{ animationDelay: "0.2s" }}
+        >
+          GA Group brings together five premier divisions to create
+          extraordinary experiences across weddings, events, design, and
+          lifestyle.
         </p>
-
-
       </div>
 
       {/* Scroll Indicator */}
