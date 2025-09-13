@@ -12,7 +12,7 @@ import { useLocalizedHref } from "@/lib/useLocalizedHref";
 export const GridSection = () => {
   const { getLocalizedHref } = useLocalizedHref();
   return (
-    <div className="grid-container mx-auto">
+    <div id="division" className="grid-container mx-auto">
       {/* Bottom Left Section */}
       <div className="grid-item grid-item-1 group">
         <Link href={'https://galabyga.com'}>

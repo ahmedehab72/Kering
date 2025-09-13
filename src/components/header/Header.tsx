@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useLocalizedHref } from "@/lib/useLocalizedHref";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,19 +21,20 @@ const Navigation = () => {
   const navItemsLeft = [
     { href: "#about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
-    { href: "#News", label: "NEWS" },
+    { href: "#feature", label: "FEATURE" },
   ];
   const navItemsRight = [
-    { href: "#feature", label: "FEATURE" },
-    { href: "#images", label: "IMAGES" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "#News", label: "NEWS" },
+    { href: "images", label: "IMAGES" },
+    { href: "contact", label: "CONTACT" },
   ];
   const navItems = [
     { href: "#about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
     { href: "#feature", label: "FEATURE" },
-    { href: "#images", label: "IMAGES" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "#News", label: "NEWS" },
+    { href: "images", label: "IMAGES" },
+    { href: "contact", label: "CONTACT" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -41,6 +44,7 @@ const Navigation = () => {
       setIsMobileMenuOpen(false);
     }
   };
+  const { getLocalizedHref } = useLocalizedHref();
 
   return (
     <nav
@@ -92,8 +96,9 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItemsRight.map((item) => (
-              <button
+              <Link
                 key={item.href}
+                href={getLocalizedHref(`/${item.href}`)}
                 onClick={() => scrollToSection(item.href)}
                 className={`font-body font-medium transition-all duration-300 relative group text-sm cursor-pointer ${
                   isScrolled
@@ -103,7 +108,7 @@ const Navigation = () => {
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
-              </button>
+              </Link>
             ))}
           </div>
 
