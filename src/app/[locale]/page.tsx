@@ -1,3 +1,4 @@
+import CollectionImages from "@/components/collection/CollectionImages";
 import HeroSection from "@/components/hero/Hero";
 import AboutPage from "@/components/Others/About";
 import { FAQ } from "@/components/Others/FAQ";
@@ -16,8 +17,9 @@ export default function HomePage() {
     <main className="">
       <HeroSection />
       <SideAction />
-      <AboutPage /> 
+      {/* <AboutPage />  */}
       <GridSection /> 
+      <CollectionImages />
       <OurFeatures />
       <IconSlider />
       <TalentSection />

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 // import heroImage from "/images/contact.jpg";
 import Image from "next/image";
 import { ArrowDown } from "../Others/ArrowDown";
+import SliderHero from "./SliderHero";
 
 const HeroSection = () => {
   return (
@@ -42,9 +43,10 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
         <ArrowDown />
-      </div>
+      </div> */}
+      <SliderHero />
     </section>
   );
 };
