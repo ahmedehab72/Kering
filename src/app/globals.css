@@ -121,7 +121,9 @@
     @apply bg-background text-foreground;
   }
 }
-.grid-container {
+
+/* division section has 5 images */
+/* .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -138,25 +140,24 @@
   transition: all 0.3s ease;
 }
 
-/* توزيع العناصر */
 .grid-item-1 {
-  grid-area: 1 / 1 / 3 / 2; /* عمودين وصف */
+  grid-area: 1 / 1 / 3 / 2; 
 }
 
 .grid-item-2 {
-  grid-area: 3 / 1 / 5 / 2; /* باقي الصف الأول */
+  grid-area: 3 / 1 / 5 / 2;
 }
 
 .grid-item-3 {
-  grid-area: 1 / 2 / 5 / 3; /* عمودين وصفين */
+  grid-area: 1 / 2 / 5 / 3; 
 }
 
 .grid-item-4 {
-  grid-area: 1 / 3 / 3 / 4; /* عمودين وصف */
+  grid-area: 1 / 3 / 3 / 4; 
 }
 
 .grid-item-5 {
-  grid-area: 3 / 3 / 5 / 4; /* باقي الصف */
+  grid-area: 3 / 3 / 5 / 4; 
 }
 @media (max-width: 1024px) {
   .grid-container {
@@ -179,8 +180,42 @@
   .grid-item-5 {
     grid-area: 3 / 3 / 4 / 5;
   }
+} */
+
+/* new division has 6 images instead 5  */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  grid-template-rows: repeat(2, 1fr);    /* صفين */
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 700px; /* ممكن تشيله لو هتسيب الارتفاع تلقائي */
 }
 
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #ddd; /* بس عشان يبان */
+}
+
+/* كل العناصر تبقى 1x1 */
+.grid-item-1 { grid-area: 1 / 1 / 2 / 2; }
+.grid-item-2 { grid-area: 1 / 2 / 2 / 3; }
+.grid-item-3 { grid-area: 1 / 3 / 2 / 4; }
+.grid-item-4 { grid-area: 2 / 1 / 3 / 2; }
+.grid-item-5 { grid-area: 2 / 2 / 3 / 3; }
+.grid-item-6 { grid-area: 2 / 3 / 3 / 4; }
+
+/* ميديا كويري للموبايل */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* صفين */
+    grid-template-rows: auto;
+  }
+}
 
 /* Sustainability video section styles */
 .sustainability-video {

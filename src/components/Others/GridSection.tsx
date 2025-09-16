@@ -135,6 +135,27 @@ export const GridSection = () => {
             </div>
           </Link>
         </div>
+         <div className="grid-item grid-item-6 group">
+          <Link href={"https://ghadeerashoor.com"}>
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="/images/gridsection/ghadeerashoor.jpg"
+                alt="Luxury Jewelry"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-300" />
+              <div className="absolute top-1/2 left-8 transform  -translate-y-1/2  text-white ">
+                <p className="text-lg font-semibold tracking-[.5rem] mb-2">
+                  Ghadeer Ashoor
+                </p>
+                <h2 className="text-xl lg:text-3xl font-semibold">
+                  We are almost there!
+                </h2>
+              </div>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
