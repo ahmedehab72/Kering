@@ -1,4 +1,5 @@
 import CollectionImages from "@/components/collection/CollectionImages";
+import { GalleryVertical } from "@/components/Gallery/Gallery";
 import HeroSection from "@/components/hero/Hero";
 import AboutPage from "@/components/Others/About";
 import { FAQ } from "@/components/Others/FAQ";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <CollectionImages />
       <OurFeatures />
       <IconSlider />
+      {/* <GalleryVertical /> */}
       <TalentSection />
       <FAQ />
       {/* <FinanceSection /> */}
