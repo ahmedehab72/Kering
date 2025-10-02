@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import AdvSlider from "@/components/imagesPage/advSlider";
 
 const ImagesPage = () => {
   const [search, setSearch] = useState("");
@@ -12,7 +13,6 @@ const ImagesPage = () => {
     console.log("Searching for:", search);
   };
 
-  // Example images (replace with your own / dynamic)
   const images = [
     "/images/gridsection/Glimpse.jpg",
     "/images/gridsection/ghadeerashoor.jpg",
@@ -32,11 +32,23 @@ const ImagesPage = () => {
     "/images/gridsection/Gala.jpg",
   ];
 
+  // Variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 space-y-16">
+      <div className="absolute bg-black p-10 right-0 top-0 left-0 "></div>
       {/* Top Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-        {/* Left Content */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+        className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 mt-6"
+      >
         <div>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-2">
             GA Group
@@ -48,10 +60,9 @@ const ImagesPage = () => {
             ipsum eget purus.
           </p>
         </div>
-        {/* Right Cards */}
         <div className="grid grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="relative rounded-lg overflow-hidden shadow-md">
+          <motion.div className="relative rounded-lg overflow-hidden shadow-md">
             <Image
               src="/images/gridsection/Glimpse.jpg"
               alt="Texture Challenge"
@@ -62,12 +73,11 @@ const ImagesPage = () => {
             <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white cursor-pointer">
               <p className="text-sm font-light">Glimpse</p>
               <h4 className="font-semibold">Texture Challenge</h4>
-              {/* <button className="text-sm underline mt-1">Join →</button> */}
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2 */}
-          <div className="relative rounded-lg overflow-hidden shadow-md">
+          <motion.div className="relative rounded-lg overflow-hidden shadow-md">
             <Image
               src="/images/gridsection/Gala.jpg"
               alt="Movement Challenge"
@@ -78,47 +88,77 @@ const ImagesPage = () => {
             <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white cursor-pointer">
               <p className="text-sm font-light">Gala</p>
               <h4 className="font-semibold">Movement Challenge</h4>
-              {/* <button className="text-sm underline mt-1">Join →</button> */}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
-{/* Masonry Grid Section */}
-<div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-  {images.map((src, i) => {
-    const randomHeight = Math.floor(Math.random() * (500 - 250 + 1)) + 250;
-
-    // second image to show on hover
-    const hoverImage = images[(i + 1) % images.length];
-
-    return (
-      <div
-        key={i}
-        className="relative overflow-hidden rounded-lg shadow-md break-inside-avoid group cursor-pointer"
-        style={{ height: randomHeight }}
+      </motion.div>
+      {/* <AdvSlider /> */}
+      {/* Divider Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+        className="relative py-16 text-center"
       >
-        {/* Default Image */}
-        <Image
-          src={src}
-          alt={`Gallery Image ${i + 1}`}
-          width={500}
-          height={randomHeight}
-          className="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:rotate-y-180 group-hover:scale-95"
-        />
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+          Explore Our Stunning Gallery
+        </h3>
+        <p className="text-gray-500 mt-2">
+          A collection of beautiful moments and creative visuals.
+        </p>
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-16 h-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full"></div>
+      </motion.div>
 
-        {/* Hover Image (initially hidden, then revealed) */}
-        <Image
-          src={hoverImage}
-          alt={`Hover Image ${i + 1}`}
-          width={500}
-          height={randomHeight}
-          className="absolute inset-0 object-cover w-full h-full opacity-0 rotate-y-180 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:rotate-y-0"
-        />
+      {/* Masonry Grid Section */}
+      <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        {images.map((src, i) => {
+          const randomHeight =
+            Math.floor(Math.random() * (500 - 250 + 1)) + 250;
+          const hoverImage = images[(i + 1) % images.length];
+
+          return (
+            <motion.div
+              key={i}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    delay: i * 0.1, // stagger effect
+                  },
+                },
+              }}
+              className="relative overflow-hidden rounded-lg shadow-md break-inside-avoid group cursor-pointer"
+              style={{ height: randomHeight }}
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* Default Image */}
+              <Image
+                src={src}
+                alt={`Gallery Image ${i + 1}`}
+                width={500}
+                height={randomHeight}
+                className="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:rotate-y-180 group-hover:scale-95"
+              />
+
+              {/* Hover Image */}
+              <Image
+                src={hoverImage}
+                alt={`Hover Image ${i + 1}`}
+                width={500}
+                height={randomHeight}
+                className="absolute inset-0 object-cover w-full h-full opacity-0 rotate-y-180 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:rotate-y-0"
+              />
+            </motion.div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
-
     </section>
   );
 };
