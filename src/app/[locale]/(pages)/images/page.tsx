@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AdvSlider from "@/components/imagesPage/advSlider";
 
 const ImagesPage = () => {
   const [search, setSearch] = useState("");
@@ -92,7 +91,6 @@ const ImagesPage = () => {
           </motion.div>
         </div>
       </motion.div>
-      {/* <AdvSlider /> */}
       {/* Divider Section */}
 
 
