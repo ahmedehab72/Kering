@@ -94,21 +94,7 @@ const ImagesPage = () => {
       </motion.div>
       {/* <AdvSlider /> */}
       {/* Divider Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-        className="relative py-16 text-center"
-      >
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Explore Our Stunning Gallery
-        </h3>
-        <p className="text-gray-500 mt-2">
-          A collection of beautiful moments and creative visuals.
-        </p>
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-16 h-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full"></div>
-      </motion.div>
+
 
       {/* Masonry Grid Section */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
