@@ -3,6 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Variants } from "framer-motion";
+
+const variants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
 
 const ImagesPage = () => {
   const [search, setSearch] = useState("");
@@ -45,7 +55,7 @@ const ImagesPage = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
+        variants={variants}
         className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 mt-6"
       >
         <div>
@@ -92,7 +102,6 @@ const ImagesPage = () => {
         </div>
       </motion.div>
       {/* Divider Section */}
-
 
       {/* Masonry Grid Section */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
