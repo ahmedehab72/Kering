@@ -4,6 +4,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Variants } from "framer-motion";
+import Banner from "@/components/Others/Banner";
+import Link from "next/link";
+import { useLocalizedHref } from "@/lib/useLocalizedHref";
+
+const MotionLink = motion(Link);
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -48,7 +53,7 @@ const ImagesPage = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 space-y-16">
+    <section className=" mx-auto px-6 lg:px-12  py-20 space-y-16">
       <div className="absolute bg-black p-10 right-0 top-0 left-0 "></div>
       {/* Top Section */}
       <motion.div
@@ -71,7 +76,12 @@ const ImagesPage = () => {
         </div>
         <div className="grid grid-cols-2 gap-6">
           {/* Card 1 */}
-          <motion.div className="relative rounded-lg overflow-hidden shadow-md">
+          <MotionLink
+            href={"https://glimpsebyga.com"}
+            className="relative rounded-lg overflow-hidden shadow-md"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <Image
               src="/images/gridsection/Glimpse.jpg"
               alt="Texture Challenge"
@@ -83,10 +93,15 @@ const ImagesPage = () => {
               <p className="text-sm font-light">Glimpse</p>
               <h4 className="font-semibold">Texture Challenge</h4>
             </div>
-          </motion.div>
+          </MotionLink>
 
           {/* Card 2 */}
-          <motion.div className="relative rounded-lg overflow-hidden shadow-md">
+          <MotionLink
+            href={"https://galabyga.com"}
+            className="relative rounded-lg overflow-hidden shadow-md"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <Image
               src="/images/gridsection/Gala.jpg"
               alt="Movement Challenge"
@@ -98,11 +113,11 @@ const ImagesPage = () => {
               <p className="text-sm font-light">Gala</p>
               <h4 className="font-semibold">Movement Challenge</h4>
             </div>
-          </motion.div>
+          </MotionLink>
         </div>
       </motion.div>
       {/* Divider Section */}
-
+      <Banner />
       {/* Masonry Grid Section */}
       <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
         {images.map((src, i) => {

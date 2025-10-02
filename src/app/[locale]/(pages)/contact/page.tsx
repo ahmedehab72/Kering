@@ -40,7 +40,7 @@ const Contact = () => {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
-        <h1 className="relative text-white text-5xl md:text-6xl font-bold">
+        <h1 className="relative text-white text-6xl md:text-6xl font-bold tracking-[.5rem]">
           Contact Us
         </h1>
       </div>

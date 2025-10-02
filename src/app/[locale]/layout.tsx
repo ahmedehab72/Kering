@@ -3,23 +3,22 @@ import { Roboto } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Others/Footer";
-import { initTranslations } from '../i18n/initTranslations';
-import TranslationsProvider from '../i18n/TranslationsProvider';
+import { initTranslations } from "../i18n/initTranslations";
+import TranslationsProvider from "../i18n/TranslationsProvider";
 import { ReactNode } from "react";
+import Loader from "@/components/Others/Loader";
 
 export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'ar' }];
+  return [{ locale: "en" }, { locale: "ar" }];
 }
 
 function isRtl(locale: string) {
-  return ['ar', 'fa', 'he', 'ur'].includes(locale);
+  return ["ar", "fa", "he", "ur"].includes(locale);
 }
 const geistSans = Roboto({
-  subsets: ['latin'],
-  weight: '400',
+  subsets: ["latin"],
+  weight: "400",
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,24 +29,27 @@ export default async function LocaleLayout({
   children,
   params,
 }: {
-  children: ReactNode
-params: Promise<{ locale: string }>}) {
-
-  const { locale } =await params
-  const namespaces = ['common'];
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const namespaces = ["common"];
   const { resources } = await initTranslations(locale, namespaces);
 
-  
   return (
-    <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'}>
-      <body
-        className={`${geistSans.className} antialiased`}
-      >
-        <Header />
-         <TranslationsProvider locale={locale} resources={resources} namespaces={namespaces}>
-          {children}
-        </TranslationsProvider>
-        <Footer />
+    <html lang={locale} dir={isRtl(locale) ? "rtl" : "ltr"}>
+      <body className={`${geistSans.className} antialiased`}>
+        <Loader>
+          <Header />
+          <TranslationsProvider
+            locale={locale}
+            resources={resources}
+            namespaces={namespaces}
+          >
+            {children}
+          </TranslationsProvider>
+          <Footer />
+        </Loader>
       </body>
     </html>
   );
