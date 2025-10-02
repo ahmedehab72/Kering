@@ -1,18 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Link2, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import Link from "next/link";
 import Image from "next/image";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    phone: "",
+    name: "",
     email: "",
+    budget: "",
     message: "",
   });
 
@@ -31,136 +30,100 @@ const Contact = () => {
   };
 
   return (
-    <main className="relative min-h-screen">
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10 -mt-20">
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <div className="relative h-[70vh] flex items-center justify-center">
         <Image
           src="/images/contact.jpg"
           alt="Contact background"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40" /> {/* overlay لو عايز تعتيم */}
-      </div>
-
-      {/* Header */}
-      <div className="text-center py-16 px-4 mt-20">
-        <h1 className="text-white text-5xl md:text-4xl font-bold tracking-tight">
-          CONTACT US
+        <div className="absolute inset-0 bg-black/40" />
+        <h1 className="relative text-white text-5xl md:text-6xl font-bold">
+          Contact Us
         </h1>
-        <p className="text-gray-200 my-2 font-medium">
-          We Love To Hear From You We Love To Hear From You We Love To
-          Hear From You
-        </p>
       </div>
 
-      {/* Main Content - Two Column Layout */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column - Contact Information */}
-          <div className="space-y-12 px-4 lg:px-0 col-span-4">
-            {/* Find Us Here */}
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Find Us Here</h3>
-              <div className="flex items-start gap-3 text-gray-200">
-                <Link2 size={20} className="mt-1 text-gray-200" />
-                <div>
-                  <Link href="http://www.GAGroupofficial.com">
-                    http://www.GAGroupofficial.com
-                  </Link>
-                </div>
-              </div>
-            </div>
+      {/* Contact Info Section */}
+      <div className="max-w-6xl mx-auto -mt-20 relative z-10 bg-white shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-3 gap-8 p-10">
+        {/* Address */}
+        <div className="flex flex-col items-center text-center space-y-3">
+          <MapPin className="w-6 h-6 text-gray-700" />
+          <h3 className="font-semibold text-lg">Physical Address</h3>
+          <p className="text-gray-500">
+            123 Mainstreet Lane <br /> Krakow, Poland 30-013
+          </p>
+        </div>
 
-            {/* Get In Touch */}
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-gray-200">
-                  <Phone size={20} className="text-gray-200" />
-                  <p>+966 55 30033</p>
-                </div>
-                <div className="flex items-center gap-3 text-gray-200">
-                  <Instagram size={20} className="text-gray-200" />
-                  <Link href={"www.GA.Group.Official.com"}>
-                    www.GA.Group.Official.com
-                  </Link>
-                </div>
-                <div className="flex items-center gap-3 text-gray-200">
-                  <Linkedin size={20} className="text-gray-200" />
-                  <Link href={"https://www.linkedin.com/company/ga-group-official/posts/?feedView=all"}>
-                    https://www.linkedin.com
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Email */}
+        <div className="flex flex-col items-center text-center space-y-3">
+          <Mail className="w-6 h-6 text-gray-700" />
+          <h3 className="font-semibold text-lg">Email Address</h3>
+          <a className="text-gray-500" href="Info@weddingJournal.com">
+            Info@weddingJournal.com
+          </a>
+        </div>
 
-          {/* Right Column - Contact Form */}
-          <div className="bg-gray-300/90 backdrop-blur-md p-8 rounded-lg col-span-8">
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">
-              Take The First Step, We
-            </h3>
-            <h3 className="text-xl font-semibold text-gray-700 mb-6">
-              Will Take Care For The Rest
-            </h3>
+        {/* Phone */}
+        <div className="flex flex-col items-center text-center space-y-3">
+          <Phone className="w-6 h-6 text-gray-700" />
+          <h3 className="font-semibold text-lg">Phone Numbers</h3>
+          <p className="text-gray-500">+48 123 456 789</p>
+        </div>
+      </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  name="firstName"
-                  placeholder="First Name"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  className="border-b border-t-0 border-x-0 rounded-none bg-transparent focus:border-gray-500"
-                />
-              </div>
+      {/* Chat Section */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 my-24 gap-y-10 gap-x-24 px-6">
+        {/* Left Image */}
+        <div className="relative h-[450px] w-full rounded-lg overflow-hidden">
+          <Image
+            src="/images/aboutImage.png"
+            alt="Wedding couple"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-              <div>
-                <Input
-                  type="tel"
-                  name="phone"
-                  placeholder="* Phone Number"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="border-b border-t-0 border-x-0 rounded-none bg-transparent focus:border-gray-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="* Email Address"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="border-b border-t-0 border-x-0 rounded-none bg-transparent focus:border-gray-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder="Message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="border-b border-t-0 border-x-0 rounded-none bg-transparent focus:border-gray-500 resize-none"
-                  rows={3}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-md font-semibold"
-              >
-                Submit
-              </Button>
-            </form>
-          </div>
+        {/* Right Form */}
+        <div className="px-6 bg-white rounded-lg shadow-md">
+          <h3 className="text-2xl font-semibold mb-8">Let’s Chat</h3>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <Input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+            <Input
+              type="text"
+              name="budget"
+              placeholder="Budget"
+              value={formData.budget}
+              onChange={handleInputChange}
+            />
+            <Textarea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleInputChange}
+              rows={4}
+            />
+            <Button
+              type="submit"
+              className="w-full bg-black hover:bg-gray-800 text-white"
+            >
+              SEND MESSAGE
+            </Button>
+          </form>
         </div>
       </div>
     </main>

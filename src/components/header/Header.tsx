@@ -74,7 +74,10 @@ const Navigation = () => {
             ))}
           </div>
           {/* Logo */}
-          <div className="font-display text-2xl font-bold text-white lg:mx-20 mx-0">
+          <Link
+            href={getLocalizedHref(`/`)}
+            className="font-display text-2xl font-bold text-white lg:mx-20 mx-0"
+          >
             {isScrolled ? (
               <Image
                 src={"/images/GAGroupLogo.png"}
@@ -92,7 +95,7 @@ const Navigation = () => {
                 className="h-12 w-24"
               />
             )}
-          </div>
+          </Link>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItemsRight.map((item) => (
