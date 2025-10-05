@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { easeOut, motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLocalizedHref } from "@/lib/useLocalizedHref";
 import Link from "next/link";
@@ -11,7 +11,7 @@ const fadeUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.8, ease: easeOut },
   },
 };
 
