@@ -19,7 +19,7 @@ const Navigation = () => {
   }, []);
 
   const navItemsLeft = [
-    { href: "#about", label: "ABOUT" },
+    { href: "about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
     { href: "#feature", label: "FEATURE" },
   ];
@@ -56,12 +56,12 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center lg:justify-center justify-between ">
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation left*/}
           <div className="hidden md:flex items-center space-x-8">
             {navItemsLeft.map((item) => (
-              <button
+              <Link
+                href={getLocalizedHref(`/${item.href}`)}
                 key={item.href}
-                onClick={() => scrollToSection(item.href)}
                 className={`font-body font-medium transition-all duration-300 relative group text-sm cursor-pointer ${
                   isScrolled
                     ? "text-foreground hover:text-primary"
@@ -70,7 +70,7 @@ const Navigation = () => {
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-700 transition-all duration-300 group-hover:w-full"></span>
-              </button>
+              </Link>
             ))}
           </div>
           {/* Logo */}
@@ -96,7 +96,8 @@ const Navigation = () => {
               />
             )}
           </Link>
-          {/* Desktop Navigation */}
+
+          {/* Desktop Navigation right */}
           <div className="hidden md:flex items-center space-x-8">
             {navItemsRight.map((item) => (
               <Link

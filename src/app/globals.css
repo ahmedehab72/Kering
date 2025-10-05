@@ -186,7 +186,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
-  grid-template-rows: repeat(2, 1fr);    /* صفين */
+  grid-template-rows: repeat(2, 1fr); /* صفين */
   gap: 10px;
   width: 100%;
   margin-bottom: 20px;
@@ -202,12 +202,24 @@
 }
 
 /* توزيع يدوي للديسكتوب (3×2) */
-.grid-item-1 { grid-area: 1 / 1 / 2 / 2; }
-.grid-item-2 { grid-area: 1 / 2 / 2 / 3; }
-.grid-item-3 { grid-area: 1 / 3 / 2 / 4; }
-.grid-item-4 { grid-area: 2 / 1 / 3 / 2; }
-.grid-item-5 { grid-area: 2 / 2 / 3 / 3; }
-.grid-item-6 { grid-area: 2 / 3 / 3 / 4; }
+.grid-item-1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.grid-item-2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.grid-item-3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.grid-item-4 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.grid-item-5 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.grid-item-6 {
+  grid-area: 2 / 3 / 3 / 4;
+}
 
 /* للموبايل أو التابلت: سيب التوزيع تلقائي */
 @media (max-width: 1024px) {
@@ -466,12 +478,11 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: gray !important; /* arrow color */
-  width: 28px !important;  /* smaller width */
+  width: 28px !important; /* smaller width */
   height: 28px !important; /* smaller height */
   font-weight: bold;
-  padding:2px;
+  padding: 2px;
   margin-top: -12px !important;
-  
 }
 /* Loader  */
 .loader {
@@ -485,18 +496,46 @@
   grid-area: 1/1;
   border-radius: 50%;
   background: gray;
-  -webkit-mask:repeating-linear-gradient(#000 0 5px,#0000 0 10px);
+  -webkit-mask: repeating-linear-gradient(#000 0 5px, #0000 0 10px);
   animation: l35 1.5s infinite;
 }
 .loader:after {
-  -webkit-mask:repeating-linear-gradient(#0000 0 5px,#000 0 10px);
-  --s:-1;
+  -webkit-mask: repeating-linear-gradient(#0000 0 5px, #000 0 10px);
+  --s: -1;
 }
 @keyframes l35 {
   0%,
-  10% {transform: translate(0) rotate(0)}
-  35% {transform: translate(calc(var(--s,1)*50%)) rotate(0)}
-  66% {transform: translate(calc(var(--s,1)*50%)) rotate(calc(var(--s,1)*180deg))}
+  10% {
+    transform: translate(0) rotate(0);
+  }
+  35% {
+    transform: translate(calc(var(--s, 1) * 50%)) rotate(0);
+  }
+  66% {
+    transform: translate(calc(var(--s, 1) * 50%))
+      rotate(calc(var(--s, 1) * 180deg));
+  }
   90%,
-  100% {transform: translate(0) rotate(calc(var(--s,1)*180deg))}
+  100% {
+    transform: translate(0) rotate(calc(var(--s, 1) * 180deg));
+  }
 }
+
+/* about page  team memeber*/
+/* 3D flip helpers */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
