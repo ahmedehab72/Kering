@@ -21,7 +21,7 @@ const Navigation = () => {
   const navItemsLeft = [
     { href: "about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
-    { href: "#feature", label: "FEATURE" },
+    { href: "features", label: "FEATURE" },
   ];
   const navItemsRight = [
     { href: "#News", label: "NEWS" },
@@ -31,7 +31,7 @@ const Navigation = () => {
   const navItems = [
     { href: "#about", label: "ABOUT" },
     { href: "#division", label: "DIVISION" },
-    { href: "#feature", label: "FEATURE" },
+    { href: "features", label: "FEATURE" },
     { href: "#News", label: "NEWS" },
     { href: "images", label: "IMAGES" },
     { href: "contact", label: "CONTACT" },
