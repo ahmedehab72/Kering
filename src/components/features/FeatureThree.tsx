@@ -34,7 +34,7 @@ const FeatureThree = () => {
         </div>
         <div className="relative col-span-1" >
           <Image
-            src={"/images/featureImage1.png"}
+            src={"/images/featureImage3.png"}
             alt=" iamge"
             width={400}
             height={400}
