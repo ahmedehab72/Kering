@@ -7,10 +7,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-
-const OurFeatures = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+import Link from "next/link";
+import { useLocalizedHref } from "@/lib/useLocalizedHref";
 
 const features = [
   {
@@ -20,7 +18,7 @@ const features = [
       "Bespoke wedding experiences crafted with elegance, exclusivity, and timeless design.",
     points: [
       "Destination weddings elevate your business presence.",
-      "Celebrity styling residences, commercial spaces.",
+      // "Celebrity styling residences, commercial spaces elevate your business presence.",
       "Exclusive venues elegance, exclusivity, and timeless design.",
     ],
     link: "Explore Weddings",
@@ -29,10 +27,10 @@ const features = [
     image: "/images/featureImage2.png",
     title: "Corporate Excellence",
     description:
-      "Premium corporate events and conferences designed to elevate your business presence.",
+      "Premium corporate events and conferences designed.",
     points: [
       "Executive conferences residences, commercial spaces.",
-      "Product launches elegance, exclusivity, and timeless design.",
+      // "Product launches elegance, exclusivity, and timeless design.",
       "Awards ceremonies elevate your business presence.",
     ],
     link: "View Corporate Services",
@@ -41,20 +39,27 @@ const features = [
     image: "/images/featureImage3.png",
     title: "Luxury Interiors",
     description:
-      "Sophisticated interior design solutions for residences, commercial spaces, and hospitality.",
+      "Sophisticated interior design solutions for residences.",
     points: [
       "Custom furnishing elegance, exclusivity, and timeless design.",
-      "Luxury residences elevate your business presence.",
+      // "Luxury residences elevate your business presence.",
       "Hospitality design residences, commercial spaces.",
-      
     ],
     link: "Discover Interiors",
   },
 ];
+const OurFeatures = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const { getLocalizedHref } = useLocalizedHref();
 
 
   return (
-    <section id="feature" className="py-20 bg-background max-w-7xl mx-auto" ref={ref}>
+    <section
+      id="feature"
+      className="py-20 bg-background max-w-7xl mx-auto"
+      ref={ref}
+    >
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -64,7 +69,10 @@ const features = [
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">Features</span>
+            Our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">
+              Features
+            </span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Discover the powerful features that make our platform the perfect
@@ -83,7 +91,10 @@ const features = [
             >
               <Card className="group  overflow-hidden shadow-lg rounded-2xl border-none p-6">
                 {/* Image with overlay text */}
-                <div className="relative overflow-hidden h-64 cursor-pointer rounded-2xl">
+                <Link
+                  href={getLocalizedHref("/features")}
+                  className="relative overflow-hidden h-64 cursor-pointer rounded-2xl"
+                >
                   <Image
                     src={feature.image}
                     alt={feature.title}
@@ -98,13 +109,13 @@ const features = [
                       {feature.description}
                     </p> */}
                   </div>
-                </div>
+                </Link>
 
                 {/* Content */}
                 <CardContent className=" px-2">
-                                        <p className="text-sm text-gray-600 mb-6">
-                      {feature.description}
-                    </p>
+                  <p className="text-sm text-gray-600 mb-6">
+                    {feature.description}
+                  </p>
                   <ul className="space-y-2 mb-6">
                     {feature.points.map((point, idx) => (
                       <li

@@ -1,10 +1,13 @@
 'use client'
+import { useLocalizedHref } from "@/lib/useLocalizedHref"
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react"
 import Image from "next/image"
 import { useTranslation } from "react-i18next"
 
 export default function Footer() {
   const { t } = useTranslation()
+    const { getLocalizedHref } = useLocalizedHref();
+
   return (
     <footer className=" py-6 mb-8 ">
       <div className="bg-gray-200/70 p-6">
@@ -62,26 +65,32 @@ export default function Footer() {
           {/* Navigation Links */}
           <nav className="mb-8">
             <ul className="flex flex-wrap justify-center items-center gap-1 text-xs text-gray-700 font-medium tracking-wide">
+            
               <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
-                  {t("footer.sitemap")}
+                <a href={getLocalizedHref('/about')} className="hover:text-gray-900 transition-colors">
+                  {/* {t("footer.sitemap")} */}
+                  Learn More
                 </a>
               </li>
+              <li className="mx-2">•</li>
+
               <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
+                <a href={getLocalizedHref('/contact')} className="hover:text-gray-900 transition-colors">
                   {t("footer.contact")}
                 </a>
               </li>
               <li className="mx-2">•</li>
               <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
-                  {t("footer.legal")}
+                <a href="#partner" className="hover:text-gray-900 transition-colors">
+                  {/* {t("footer.legal")} */}
+                  PartnerShip
                 </a>
               </li>
               <li className="mx-2">•</li>
               <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
-                  {t("footer.credits")}
+                <a href="#talent" className="hover:text-gray-900 transition-colors">
+                  {/* {t("footer.credits")} */}
+                  Licinses
                 </a>
               </li>
               <li className="mx-2">•</li>
@@ -92,8 +101,9 @@ export default function Footer() {
               </li>
               <li className="mx-2">•</li>
               <li>
-                <a href="#" className="hover:text-gray-900 transition-colors">
-                  {t("footer.cookies")}
+                <a href="#faq" className="hover:text-gray-900 transition-colors">
+                  {/* {t("footer.cookies")} */}
+                  FAQs
                 </a>
               </li>
             </ul>
@@ -101,7 +111,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-xs text-gray-600 font-medium tracking-wide">
-            © KERING 2025. {t("footer.rights")}
+            © GA Group 2025. {t("footer.rights")}
           </div>
         </div>
       </div>

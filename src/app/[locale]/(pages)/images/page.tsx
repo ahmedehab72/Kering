@@ -61,9 +61,9 @@ const ImagesPage = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={variants}
-        className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 mt-6"
+        className="max-w-3xl mx-auto items-center gap-10 mt-6"
       >
-        <div>
+        <div className="text-center w-full flex flex-col items-center">
           <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-2">
             GA Group
           </h2>
@@ -74,8 +74,7 @@ const ImagesPage = () => {
             ipsum eget purus.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-6">
-          {/* Card 1 */}
+        {/* <div className="grid grid-cols-2 gap-6">
           <MotionLink
             href={"https://glimpsebyga.com"}
             className="relative rounded-lg overflow-hidden shadow-md"
@@ -95,7 +94,6 @@ const ImagesPage = () => {
             </div>
           </MotionLink>
 
-          {/* Card 2 */}
           <MotionLink
             href={"https://galabyga.com"}
             className="relative rounded-lg overflow-hidden shadow-md"
@@ -114,7 +112,7 @@ const ImagesPage = () => {
               <h4 className="font-semibold">Movement Challenge</h4>
             </div>
           </MotionLink>
-        </div>
+        </div> */}
       </motion.div>
       {/* Divider Section */}
       <Banner />

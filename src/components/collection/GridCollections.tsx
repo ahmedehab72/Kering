@@ -27,8 +27,10 @@ const categories = [
 const GridCollections = () => {
   const [openImage, setOpenImage] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const handleImageClick = (img: string) => {
+  const [selectedTitle, setSelectedTitle] = useState("");
+  const handleImageClick = (img: string , name:string) => {
     setSelectedImage(img);
+    setSelectedTitle(name);
     setOpenImage(true);
   };
   return (
@@ -47,7 +49,7 @@ const GridCollections = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
             viewport={{ once: true }}
-            onClick={() => handleImageClick(category.img)}
+            onClick={() => handleImageClick(category.img , category.name)}
           >
             <Card className="h-48 relative overflow-hidden !border-none !rounded-none cursor-pointer group">
               {/* Image */}
@@ -72,7 +74,7 @@ const GridCollections = () => {
         ))}
       </motion.div>
       {openImage && (
-        <OpenImage selectedImage={selectedImage} setOpenImage={setOpenImage} />
+        <OpenImage selectedImage={selectedImage} setOpenImage={setOpenImage}  selectedTitle={selectedTitle}/>
       )}
     </section>
   );

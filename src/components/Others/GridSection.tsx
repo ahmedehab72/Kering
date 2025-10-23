@@ -15,8 +15,8 @@ export const GridSection = () => {
     <div className="flex flex-col items-center justify-center py-6">
       <div className="">
       <h2 className="text-4xl md:text-5xl font-bold text-foreground my-6 text-center tracking-wide">
-        Divisi<span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">
-          ons
+      Our  Divi<span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">
+          sions
         </span>
       </h2>        <div className="lg:w-1/2 mb-12 ml-4">
           <h3 className="font-semibold text-xl py-4 ">
