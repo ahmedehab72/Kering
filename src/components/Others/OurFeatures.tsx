@@ -129,7 +129,6 @@ const OurFeatures = () => {
                   </ul>
                   <Link
                     href={getLocalizedHref("/features")}
-                    variant="outline"
                     className=" rounded-xl text-gray-500 hover:text-gray-400  transition-all !border-none cursor-pointer flex items-center"
                   >
                     {feature.link}
