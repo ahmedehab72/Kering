@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import OpenImage from "../collection/OpenImage";
@@ -37,9 +37,9 @@ export const GalleryVertical = () => {
           />
         </div>
       ))}
-      {openImage && (
+      {/* {openImage && (
         <OpenImage selectedImage={selectedImage} setOpenImage={setOpenImage} />
-      )}
+      )} */}
     </div>
   );
 };
