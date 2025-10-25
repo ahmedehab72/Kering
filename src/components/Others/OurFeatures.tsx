@@ -127,13 +127,14 @@ const OurFeatures = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button
+                  <Link
+                    href={getLocalizedHref("/features")}
                     variant="outline"
-                    className=" rounded-xl text-gray-500 hover:text-gray-400  transition-all !border-none cursor-pointer"
+                    className=" rounded-xl text-gray-500 hover:text-gray-400  transition-all !border-none cursor-pointer flex items-center"
                   >
                     {feature.link}
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  </Link>
                 </CardContent>
               </Card>
             </motion.div>

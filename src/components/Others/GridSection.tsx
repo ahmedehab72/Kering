@@ -12,7 +12,7 @@ import { useLocalizedHref } from "@/lib/useLocalizedHref";
 export const GridSection = () => {
   const { getLocalizedHref } = useLocalizedHref();
   return (
-    <div className="flex flex-col items-center justify-center py-6">
+    <div id='division' className="flex flex-col items-center justify-center py-6">
       <div className="">
       <h2 className="text-4xl md:text-5xl font-bold text-foreground my-6 text-center tracking-wide">
       Our  Divi<span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-400 dark:from-gray-200 dark:to-gray-500">
