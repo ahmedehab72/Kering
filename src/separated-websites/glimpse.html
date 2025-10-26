@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Colour - Steps in Life</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        overflow-x: hidden;
+        background: #1a1919;
+      }
+
+      /* ========== HERO SECTION ========== */
+      .hero {
+        height: 90vh;
+        background: url("../../public/images/gridsection/Glimpse.jpg")
+          center/cover no-repeat;
+        display: flex;
+        align-items: end;
+        justify-content: start;
+        position: relative;
+        overflow: hidden;
+        padding: 0 50px 100px 50px;
+      }
+
+      /* Overlay for hero section */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .hero-content {
+        text-align: start;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1s forwards 0.5s;
+      }
+      .scroll-down {
+        position: absolute;
+        bottom: 15%;
+        right: 5%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 50px;
+        border: 2px solid #fff;
+        border-radius: 25px;
+        position: absolute;
+        z-index: 3;
+        cursor: pointer;
+      }
+
+      .scroll-down::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        animation: scrollAnim 1.5s infinite;
+      }
+
+      @keyframes scrollAnim {
+        0% {
+          opacity: 1;
+          transform: translate(-50%, 10px);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, 30px);
+        }
+      }
+
+      .logo {
+        font-size: 2rem;
+        color: #fff;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        font-style: italic;
+        letter-spacing: 3px;
+        animation: floatText 4s ease-in-out infinite;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        margin-bottom: 1rem;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      /* ========== PRODUCT GRID ========== */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        max-width: 100%;
+      }
+
+      .product-card {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: transform 0.6s ease;
+      }
+
+      .product-card.visible {
+        animation: scaleIn 0.8s forwards;
+      }
+
+      .product-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.4s ease;
+        z-index: 1;
+      }
+
+      .product-card:hover {
+        transform: scale(1.08) rotate(1deg);
+      }
+
+      .product-card:hover::before {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .product-card > div {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover > div {
+        transform: scale(1.15);
+      }
+
+      /* ==== BACKGROUND IMAGES ==== */
+      .bg-cream {
+        background: url("../../public/images/gridsection/Glimpse.jpg")
+          center/cover no-repeat;
+      }
+
+      .bg-blue {
+        background: url("../../public/images/gridsection/Gala.jpg") center/cover
+          no-repeat;
+      }
+
+      .bg-pink {
+        background: url("../../public/images/gridsection/imageTest2.jpeg")
+          center/cover no-repeat;
+      }
+
+      .bg-light-blue {
+        background: url("../../public/images/gridsection/ghadeerashoor.jpg")
+          center/cover no-repeat;
+      }
+
+      .bg-lavender {
+        background: url("../../public/images/gridsection/Gala.jpg") center/cover
+          no-repeat;
+      }
+
+      /* ========== FEATURED SECTION ========== */
+      .featured {
+        padding: 100px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .featured h2 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        opacity: 0;
+        transform: translateY(30px);
+        color: white;
+      }
+
+      .featured h2.visible {
+        animation: fadeInUp 0.8s forwards;
+      }
+
+      .brand-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        opacity: 0;
+      }
+
+      .brand-logos.visible {
+        animation: fadeIn 1s forwards 0.3s;
+      }
+
+      .brand-logo {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #333;
+        font-style: italic;
+        transition: all 0.3s;
+        color: #d4d3d3;
+
+      }
+
+      .brand-logo:hover {
+        transform: scale(1.2);
+        color: #ff6b6b;
+      }
+
+      /* ========== ANIMATIONS ========== */
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes floatText {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #ff6b6b;
+        }
+        to {
+          text-shadow: 0 0 20px #4ecdc4, 0 0 40px #ff4800;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+          letter-spacing: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-down"></div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="logo">Glimpse</div>
+        <h1>TAKE NEW STEP<br />FOR SPECIAL LIFE</h1>
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section class="product-grid">
+      <div class="product-card bg-cream" data-color="#F5E6D3"></div>
+      <div class="product-card bg-blue" data-color="#89CFF0"></div>
+      <div class="product-card bg-pink" data-color="#FFB6C1"></div>
+      <div class="product-card bg-light-blue" data-color="#B0E0E6"></div>
+      <div class="product-card bg-lavender" data-color="#E6E6FA"></div>
+      <div class="product-card bg-blue" data-color="#89CFF0"></div>
+    </section>
+
+    <!-- FEATURED SECTION -->
+    <section class="featured">
+      <h2>They talk about us</h2>
+      <div class="brand-logos">
+        <span class="brand-logo">VOGUE</span>
+        <span class="brand-logo">MILK</span>
+        <span class="brand-logo">NYLON</span>
+        <span class="brand-logo">Refinery29</span>
+        <span class="brand-logo">Colossal</span>
+        <span class="brand-logo">BAZAAR</span>
+      </div>
+    </section>
+
+    <script>
+      // Intersection observer for animations
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".product-card, .featured h2, .brand-logos")
+        .forEach((el) => observer.observe(el));
+
+      // Parallax effect on scroll for hero content
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        const heroContent = document.querySelector(".hero-content");
+        heroContent.style.transform = `translateY(${scrollY * 0.4}px)`;
+        heroContent.style.opacity = `${1 - scrollY / 600}`;
+      });
+    </script>
+  </body>
+</html>
