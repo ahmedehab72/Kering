@@ -34,7 +34,7 @@ export const GridSection = () => {
       <div className="grid-container mx-auto">
         {/* Bottom Left Section */}
         <div className="grid-item grid-item-1 group">
-          <Link href={"https://galabyga.com"}>
+          <Link href={"https://ahmedehab72.github.io/Glide/"}  target="_blank" rel="noopener noreferrer">
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/Gala.jpg"
