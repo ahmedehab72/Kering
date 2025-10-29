@@ -34,7 +34,7 @@ export const GridSection = () => {
       <div className="grid-container mx-auto">
         {/* Bottom Left Section */}
         <div className="grid-item grid-item-1 group">
-          <Link href={"https://ahmedehab72.github.io/Glide/"}  target="_blank" rel="noopener noreferrer">
+          <Link href={"https://tubular-pithivier-1abd03.netlify.app/"}  target="_blank" rel="noopener noreferrer">
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/Gala.jpg"
@@ -54,7 +54,7 @@ export const GridSection = () => {
 
         {/* Bottom Left 2 */}
         <div className="grid-item grid-item-2 group">
-          <Link href={"https://ghadeerashoor.com"}>
+          <Link href={"https://gentle-mermaid-92ebf1.netlify.app/"}>
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/ghadeerashoor.jpg"
@@ -77,7 +77,7 @@ export const GridSection = () => {
 
         {/* Center Bottom Section */}
         <div className="grid-item grid-item-3 group">
-          <Link href={"https://glimpsebyga.com"}>
+          <Link  href={"https://lighthearted-genie-5df676.netlify.app/"}  target="_blank" rel="noopener noreferrer">
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/Glimpse.jpg"
@@ -98,7 +98,7 @@ export const GridSection = () => {
 
         {/* Women in Motion Section */}
         <div className="grid-item grid-item-4 group">
-          <Link href={`https://glidebyga.com`}>
+          <Link href={"https://ahmedehab72.github.io/Glide/"}  target="_blank" rel="noopener noreferrer" >
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/Glide.jpg"
@@ -118,7 +118,7 @@ export const GridSection = () => {
 
         {/* Right Bottom Section */}
         <div className="grid-item grid-item-5 group">
-          <Link href={`https://glidebyga.com`}>
+          <Link  href={"https://jovial-sprinkles-ddd39d.netlify.app/"}  target="_blank" rel="noopener noreferrer">
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/gleambyga.png"
@@ -136,7 +136,7 @@ export const GridSection = () => {
           </Link>
         </div>
          <div className="grid-item grid-item-6 group">
-          <Link href={"https://ghadeerashoor.com"}>
+          <Link href={"https://gentle-mermaid-92ebf1.netlify.app/"}>
             <div className="relative w-full h-full overflow-hidden">
               <Image
                 src="/images/gridsection/ghadeerashoor.jpg"
