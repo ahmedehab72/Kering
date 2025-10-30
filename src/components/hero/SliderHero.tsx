@@ -1,52 +1,116 @@
 "use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { slides } from "./sliderData";
 
 const SliderHero = () => {
+  const partners = [
+    { image: "/images/partnerSlider/p1.png", link: "#", name: "Partner 1" },
+    { image: "/images/partnerSlider/p2.png", link: "#", name: "Partner 2" },
+    { image: "/images/partnerSlider/p3.png", link: "#", name: "Partner 3" },
+    { image: "/images/partnerSlider/p4.png", link: "#", name: "Partner 4" },
+    { image: "/images/partnerSlider/p5.png", link: "#", name: "Partner 5" },
+    { image: "/images/partnerSlider/p1.png", link: "#", name: "Partner 1" },
+    { image: "/images/partnerSlider/p2.png", link: "#", name: "Partner 2" },
+    { image: "/images/partnerSlider/p3.png", link: "#", name: "Partner 3" },
+    { image: "/images/partnerSlider/p4.png", link: "#", name: "Partner 4" },
+    { image: "/images/partnerSlider/p5.png", link: "#", name: "Partner 5" },
+  ];
+
+  // duplicate to create infinite loop
+  const duplicatedPartners = [...partners, ...partners];
   return (
     <div className="w-full bg-transparent py-6 absolute bottom-0 pl-4">
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={20}
-        slidesPerView={5} // number of icons visible
-        grabCursor={true}
-        autoplay={{
-          delay: 500, // 1 second
-          disableOnInteraction: false, // keep autoplay after user drag
-        }}
-        loop={true} // infinite loop
-        breakpoints={{
-          320: { slidesPerView: 5 },
-          640: { slidesPerView: 9 },
-          1024: { slidesPerView: 12 },
-        }}
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="flex justify-center">
-            <Image
-              src={slide.thumbnail}
-              alt="brand"
-              width={60}
-              height={60}
-              className="rounded-full object-cover"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="relative w-full">
+        {/* Sliding container */}
+        <motion.div
+          animate={{ x: [0, -150 * partners.length] }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="flex space-x-12"
+        >
+          {duplicatedPartners.map((partner, index) => (
+            <Link
+              key={`${partner.name}-${index}`}
+              href={partner.link}
+              className="flex-shrink-0 flex flex-col items-center justify-center min-w-[150px] group"
+            >
+              <div className="w-22 h-22 rounded-full overflow-hidden  group-hover:scale-110 transition-all">
+                <Image
+                  src={partner.image}
+                  alt={partner.name}
+                  width={96}
+                  height={96}
+                  className="w-full h-full "
+                />
+              </div>
+              {/* <span className="text-sm font-medium text-foreground/80 mt-3">
+                {partner.name}
+              </span> */}
+            </Link>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };
-
 export default SliderHero;
 
+// ///-------------------------------
+// export default SliderHero;
+// "use client";
+// import Image from "next/image";
+// import React from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import { slides } from "./sliderData";
+// import { Autoplay } from 'swiper/modules';
+
+// const SliderHero = () => {
+//   return (
+//     <div className="w-full bg-transparent py-6 absolute bottom-0 pl-4">
+//       <Swiper
+//         modules={[Autoplay]}
+//         spaceBetween={20}
+//         slidesPerView={5} // number of icons visible
+//         grabCursor={true}
+//         autoplay={{
+//           delay: 2500, // 1 second
+//           disableOnInteraction: false, // keep autoplay after user drag
+//         }}
+//         loop={true} // infinite loop
+//         breakpoints={{
+//           320: { slidesPerView: 5 },
+//           640: { slidesPerView: 9 },
+//           1024: { slidesPerView: 12 },
+//         }}
+//       >
+//         {slides.map((slide) => (
+//           <SwiperSlide key={slide.id} className="flex justify-center">
+//             <Image
+//               src={slide.thumbnail}
+//               alt="brand"
+//               width={60}
+//               height={60}
+//               className="rounded-full object-cover"
+//             />
+//           </SwiperSlide>
+//         ))}
+//       </Swiper>
+//     </div>
+//   );
+// };
+// export default SliderHero;
+
+///-----------------kering slider hero
 // "use client";
 
 // import React, { useState, useEffect } from "react";
 // import Image from "next/image";
-import { Autoplay } from 'swiper/modules';
 
 // const slides = [
 //   {
