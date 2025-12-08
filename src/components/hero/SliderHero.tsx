@@ -21,7 +21,7 @@ const SliderHero = () => {
   // duplicate to create infinite loop
   const duplicatedPartners = [...partners, ...partners];
   return (
-    <div className="w-full bg-transparent py-6 absolute bottom-0 pl-4">
+    <div className="w-full py-6 absolute bottom-0 pl-4 bg-white mb-6">
       <div className="relative w-full">
         {/* Sliding container */}
         <motion.div
@@ -37,9 +37,9 @@ const SliderHero = () => {
             <Link
               key={`${partner.name}-${index}`}
               href={partner.link}
-              className="flex-shrink-0 flex flex-col items-center justify-center min-w-[150px] group"
+              className="flex-shrink-0 flex flex-col items-center justify-center min-w-[150px] group bg-white"
             >
-              <div className="w-22 h-22 rounded-full overflow-hidden  group-hover:scale-110 transition-all">
+              <div className="w-22 h-22 overflow-hidden  group-hover:scale-110 transition-all">
                 <Image
                   src={partner.image}
                   alt={partner.name}
